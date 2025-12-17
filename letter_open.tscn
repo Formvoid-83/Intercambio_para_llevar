@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=3 uid="uid://co0xn8yr1tkir"]
+
+[ext_resource type="Script" uid="uid://dwbnpnetbdeca" path="res://Scripts/letter_open.gd" id="1_kgfyd"]
+[ext_resource type="Texture2D" uid="uid://dvkv5s6uok3tk" path="res://Assets/Images/Letter.png" id="2_ypp0v"]
+
+[node name="letter_open" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_kgfyd")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer"]
+layout_mode = 2
+texture = ExtResource("2_ypp0v")
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/TextureRect"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 2.0
+offset_right = 867.0
+offset_bottom = 1014.0
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="contentVBox" type="VBoxContainer" parent="CenterContainer/TextureRect/MarginContainer"]
+layout_mode = 2
+
+[node name="greetings" type="Label" parent="CenterContainer/TextureRect/MarginContainer/contentVBox"]
+layout_mode = 2
+
+[node name="spacerControl" type="Control" parent="CenterContainer/TextureRect/MarginContainer/contentVBox"]
+layout_mode = 2
+
+[node name="contentLabel" type="Label" parent="CenterContainer/TextureRect/MarginContainer/contentVBox"]
+layout_mode = 2
+autowrap_mode = 2
+
+[node name="FromLabel" type="Label" parent="CenterContainer/TextureRect/MarginContainer/contentVBox"]
+layout_mode = 2
+horizontal_alignment = 2
+
+[node name="spacerControl 2" type="Control" parent="CenterContainer/TextureRect/MarginContainer/contentVBox"]
+layout_mode = 2
+size_flags_vertical = 3
