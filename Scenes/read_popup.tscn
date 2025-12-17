@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://iasb57my7lat"]
+
+[ext_resource type="Script" uid="uid://ikx83esn5qtw" path="res://Scripts/read_popup.gd" id="1_xbe3v"]
+
+[node name="ReadPopup" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 281.0
+offset_bottom = 311.0
+script = ExtResource("1_xbe3v")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 281.0
+offset_bottom = 312.0
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0

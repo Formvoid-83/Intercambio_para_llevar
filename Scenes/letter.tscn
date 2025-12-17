@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bl2pcgsurq58w"]
+
+[ext_resource type="Script" uid="uid://coqxd4j3bgg27" path="res://Scripts/letter.gd" id="1_7n1mw"]
+[ext_resource type="Texture2D" uid="uid://dtbixf1h7cp6e" path="res://Assets/Images/Letters.png" id="2_7n1mw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7n1mw"]
+size = Vector2(241, 113)
+
+[node name="Letter" type="Area2D"]
+collision_layer = 2
+script = ExtResource("1_7n1mw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_7n1mw")
+region_rect = Rect2(456, 456, 240, 168)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_7n1mw")

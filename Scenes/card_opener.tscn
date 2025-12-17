@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bawd52ey5er7t"]
+
+[ext_resource type="Texture2D" uid="uid://cifcyiysynbn6" path="res://Assets/Images/Gifts.png" id="1_3q56s"]
+[ext_resource type="Script" uid="uid://ct1ns78i7wiu" path="res://Scripts/card_opener.gd" id="1_ehty7"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ehty7"]
+
+[node name="CardOpener" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_ehty7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_3q56s")
+region_enabled = true
+region_rect = Rect2(1008, 400, 104, 96)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(43.305, -42.12)
+rotation = 0.80983275
+scale = Vector2(5.14, 12.78)
+shape = SubResource("SegmentShape2D_ehty7")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

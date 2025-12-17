@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://dckfa8iofjspr"]
+
+[ext_resource type="PackedScene" uid="uid://bawd52ey5er7t" path="res://Scenes/card_opener.tscn" id="1_0uag0"]
+[ext_resource type="Script" uid="uid://bn88pxcoowbbd" path="res://Scripts/workshop.gd" id="1_h4m5q"]
+[ext_resource type="PackedScene" uid="uid://bl2pcgsurq58w" path="res://Scenes/letter.tscn" id="2_m0rod"]
+[ext_resource type="PackedScene" uid="uid://iasb57my7lat" path="res://Scenes/read_popup.tscn" id="3_oxant"]
+
+[node name="Workshop" type="Node2D"]
+script = ExtResource("1_h4m5q")
+letter_scene = ExtResource("2_m0rod")
+
+[node name="LettersContainer" type="Node2D" parent="."]
+
+[node name="CardOpener" parent="." instance=ExtResource("1_0uag0")]
+position = Vector2(800, 500)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ReadPopup" parent="CanvasLayer" instance=ExtResource("3_oxant")]
+offset_left = 472.0
+offset_top = 41.0
+offset_right = 753.0
+offset_bottom = 351.0
