@@ -3,6 +3,9 @@ extends Area2D
 var dragging := false
 var drag_offset := Vector2.ZERO
 
+func _ready():
+	input_pickable = true
+
 func _input_event(viewport, event: InputEvent, shape_idx):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.pressed:
@@ -10,12 +13,6 @@ func _input_event(viewport, event: InputEvent, shape_idx):
 			drag_offset = global_position - get_global_mouse_position()
 		else:
 			dragging = false
-
-func _unhandled_input(event: InputEvent):
-	if event is InputEventMouseButton \
-	and event.button_index == MOUSE_BUTTON_LEFT \
-	and not event.pressed:
-		dragging = false
 
 func _process(delta):
 	if dragging:

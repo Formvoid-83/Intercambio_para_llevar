@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bl2pcgsurq58w"]
+[gd_scene load_steps=5 format=3 uid="uid://bl2pcgsurq58w"]
 
 [ext_resource type="Script" uid="uid://coqxd4j3bgg27" path="res://Scripts/letter.gd" id="1_7n1mw"]
 [ext_resource type="Texture2D" uid="uid://dtbixf1h7cp6e" path="res://Assets/Images/Letters.png" id="2_7n1mw"]
+[ext_resource type="AudioStream" uid="uid://dvk7rdeyybjid" path="res://Assets/Sounds/open_envelope.wav" id="3_sqwnb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7n1mw"]
 size = Vector2(241, 113)
@@ -15,5 +16,8 @@ texture = ExtResource("2_7n1mw")
 region_rect = Rect2(456, 456, 240, 168)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, -0.5)
+position = Vector2(121, 57)
 shape = SubResource("RectangleShape2D_7n1mw")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_sqwnb")

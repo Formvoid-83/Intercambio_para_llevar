@@ -1,0 +1,19 @@
+{
+  "letters": [
+	{
+	  "greetings": "Dear Santa",
+	  "content": "I have been good this year. I would like a red bicycle.",
+	  "from": "Timmy"
+	},
+	{
+	  "greetings": "Hello!",
+	  "content": "I want a doll and a teddy bear.",
+	  "from": "Anna"
+	},
+	{
+	  "greetings": "Dear Santa",
+	  "content": "Please bring me a train set and some books.",
+	  "from": "Lucas"
+	}
+  ]
+}
