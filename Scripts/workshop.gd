@@ -2,6 +2,7 @@ extends Node2D
 
 @export var letter_scene: PackedScene
 @export var toy_scene: PackedScene
+@export var world_toy_scene: PackedScene
 @onready var inventory: Control = $CanvasToys/InventoryPanel
 @onready var wrapping_panel: Control = $CanvasWrapping/WrappingPanel
 @onready var toys_container: Node2D = $ToysContainer
@@ -102,10 +103,13 @@ func _is_mouse_over_table() -> bool:
 	query.collide_with_areas = true
 
 	var results := space.intersect_point(query)
+
 	for r in results:
-		if r.collider.name == "CollisionTable2D":
+		if r.collider == area_table:
+			print("✅ Colisión con la MESA detectada")
 			return true
 	return false
+
 	
 func _on_table_dropped(drop_position: Vector2):
 	print("TABLE DROPPED at:", drop_position)
@@ -122,14 +126,14 @@ func _on_table_dropped(drop_position: Vector2):
 	toy.released.connect(_on_toy_released)
 
 func _spawn_real_toy(toy_data: ToyData, pos: Vector2):
-	print("SPAWNING TOY:", toy_data.name)
+	print("SPAWNING WORLD TOY:", toy_data.name)
 
-	var toy := toy_scene.instantiate() as Toy
+	var toy := world_toy_scene.instantiate() as WorldToy
 	toys_container.add_child(toy)
 
 	toy.global_position = pos
 	toy.setup(toy_data, ATLAS)
-	toy.released.connect(_on_toy_released)
+
 
 
 func _on_toy_released():

@@ -1,7 +1,8 @@
 class_name WorldToy
 extends Node2D
 
-@export var sprite: Sprite2D
+#@export var sprite: Sprite2D
+@onready var sprite: Sprite2D = $Sprite2D
 
 func setup(data: ToyData, atlas: Texture2D):
 	var tex := AtlasTexture.new()

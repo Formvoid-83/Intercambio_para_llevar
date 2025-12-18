@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dckfa8iofjspr"]
+[gd_scene load_steps=15 format=3 uid="uid://dckfa8iofjspr"]
 
 [ext_resource type="PackedScene" uid="uid://bawd52ey5er7t" path="res://Scenes/card_opener.tscn" id="1_0uag0"]
 [ext_resource type="Script" uid="uid://bn88pxcoowbbd" path="res://Scripts/workshop.gd" id="1_h4m5q"]
@@ -6,9 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://3yojtyhke3jh" path="res://Scenes/toy.tscn" id="3_vt66m"]
 [ext_resource type="Script" uid="uid://ddef3i2xfiqkv" path="res://Scripts/area_table.gd" id="4_2xyou"]
 [ext_resource type="PackedScene" uid="uid://co0xn8yr1tkir" path="res://Scenes/letter_open.tscn" id="4_m0rod"]
+[ext_resource type="PackedScene" uid="uid://di6jx88d8gre1" path="res://Scenes/world_toy.tscn" id="4_s7tup"]
 [ext_resource type="Texture2D" uid="uid://dp1nwt0cy5n51" path="res://Assets/Images/workshop_table_shelf.png" id="4_vt66m"]
 [ext_resource type="PackedScene" uid="uid://mpjgbql8egmy" path="res://Scenes/inventory_panel.tscn" id="5_fakrd"]
-[ext_resource type="Script" path="res://Scripts/inventory_handle.gd" id="6_7nc4v"]
+[ext_resource type="Script" uid="uid://cl8venik3dnng" path="res://Scripts/inventory_handle.gd" id="6_7nc4v"]
 [ext_resource type="PackedScene" uid="uid://c021kselxnjvj" path="res://Scenes/wrapping_panel.tscn" id="10_ap34w"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qhibq"]
@@ -25,6 +26,7 @@ radius = 117.00427
 script = ExtResource("1_h4m5q")
 letter_scene = ExtResource("2_m0rod")
 toy_scene = ExtResource("3_vt66m")
+world_toy_scene = ExtResource("4_s7tup")
 
 [node name="Area_Table" type="Area2D" parent="."]
 z_index = 4

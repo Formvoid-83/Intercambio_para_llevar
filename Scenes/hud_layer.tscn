@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://cbabsf0iog12r"]
+[gd_scene load_steps=0 format=3 uid="uid://cbabsf0iog12r"]
 
 [node name="HUD" type="Control"]
 layout_direction = 2
