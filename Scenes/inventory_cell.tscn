@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://dphdif1h5gp4g"]
+
+[ext_resource type="Script" uid="uid://cl2sexoux47ue" path="res://Scripts/inventory_cell.gd" id="1_jx5ob"]
+
+[node name="InventoryCell" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_jx5ob")
+
+[node name="Background" type="TextureRect" parent="."]
+z_index = 1
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ToyIcon" type="TextureRect" parent="."]
+z_index = 2
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PriceLabel" type="Label" parent="."]
+z_index = 3
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0

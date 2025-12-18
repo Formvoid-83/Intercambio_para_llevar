@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://mpjgbql8egmy"]
+
+[ext_resource type="Script" uid="uid://bklkhmm6ogoye" path="res://Scripts/inventory_panel.gd" id="1_4ij40"]
+
+[node name="InventoryPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_4ij40")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+columns = 2

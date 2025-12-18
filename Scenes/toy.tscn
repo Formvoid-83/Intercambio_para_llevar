@@ -1,8 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://3yojtyhke3jh"]
+[gd_scene load_steps=3 format=3 uid="uid://3yojtyhke3jh"]
 
 [ext_resource type="Texture2D" uid="uid://cifcyiysynbn6" path="res://Assets/Images/Gifts.png" id="1_58p4q"]
 
-[node name="Toy" type="Sprite2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_58p4q"]
+size = Vector2(119, 115)
+
+[node name="Toy" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_58p4q")
 region_enabled = true
-region_rect = Rect2(1176, 232, 104, 96)
+region_rect = Rect2(800, 48, 128, 176)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_58p4q")

@@ -1,15 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://dckfa8iofjspr"]
+[gd_scene load_steps=7 format=3 uid="uid://dckfa8iofjspr"]
 
 [ext_resource type="PackedScene" uid="uid://bawd52ey5er7t" path="res://Scenes/card_opener.tscn" id="1_0uag0"]
 [ext_resource type="Script" uid="uid://bn88pxcoowbbd" path="res://Scripts/workshop.gd" id="1_h4m5q"]
 [ext_resource type="PackedScene" uid="uid://bl2pcgsurq58w" path="res://Scenes/letter.tscn" id="2_m0rod"]
 [ext_resource type="PackedScene" uid="uid://co0xn8yr1tkir" path="res://Scenes/letter_open.tscn" id="4_m0rod"]
+[ext_resource type="PackedScene" uid="uid://mpjgbql8egmy" path="res://Scenes/inventory_panel.tscn" id="5_fakrd"]
+[ext_resource type="Script" uid="uid://cl8venik3dnng" path="res://Scripts/inventory_handle.gd" id="6_7nc4v"]
 
 [node name="Workshop" type="Node2D"]
 script = ExtResource("1_h4m5q")
 letter_scene = ExtResource("2_m0rod")
 
 [node name="LettersContainer" type="Node2D" parent="."]
+
+[node name="ToysContainer" type="Node2D" parent="."]
 
 [node name="CardOpener" parent="." instance=ExtResource("1_0uag0")]
 position = Vector2(800, 500)
@@ -21,3 +25,16 @@ offset_left = 563.0
 offset_top = 26.0
 offset_right = 603.0
 offset_bottom = 66.0
+
+[node name="CanvasToys" type="CanvasLayer" parent="."]
+
+[node name="InventoryPanel" parent="CanvasToys" instance=ExtResource("5_fakrd")]
+
+[node name="InventoryHandle" type="Control" parent="CanvasToys"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("6_7nc4v")
+
+[connection signal="toy_requested" from="CanvasToys/InventoryPanel" to="." method="_spawn_toy"]
