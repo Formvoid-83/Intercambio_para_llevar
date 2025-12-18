@@ -1,22 +1,51 @@
-[gd_scene load_steps=7 format=3 uid="uid://dckfa8iofjspr"]
+[gd_scene load_steps=11 format=3 uid="uid://dckfa8iofjspr"]
 
 [ext_resource type="PackedScene" uid="uid://bawd52ey5er7t" path="res://Scenes/card_opener.tscn" id="1_0uag0"]
 [ext_resource type="Script" uid="uid://bn88pxcoowbbd" path="res://Scripts/workshop.gd" id="1_h4m5q"]
 [ext_resource type="PackedScene" uid="uid://bl2pcgsurq58w" path="res://Scenes/letter.tscn" id="2_m0rod"]
-[ext_resource type="PackedScene" path="res://letter_open.tscn" id="4_m0rod"]
-[ext_resource type="PackedScene" path="res://Scenes/inventory_panel.tscn" id="5_fakrd"]
-[ext_resource type="Script" path="res://Scripts/inventory_handle.gd" id="6_7nc4v"]
+[ext_resource type="PackedScene" uid="uid://3yojtyhke3jh" path="res://Scenes/toy.tscn" id="3_vt66m"]
+[ext_resource type="PackedScene" uid="uid://co0xn8yr1tkir" path="res://Scenes/letter_open.tscn" id="4_m0rod"]
+[ext_resource type="Texture2D" uid="uid://dp1nwt0cy5n51" path="res://Assets/Images/workshop_table_shelf.png" id="4_vt66m"]
+[ext_resource type="PackedScene" uid="uid://mpjgbql8egmy" path="res://Scenes/inventory_panel.tscn" id="5_fakrd"]
+[ext_resource type="Script" uid="uid://cl8venik3dnng" path="res://Scripts/inventory_handle.gd" id="6_7nc4v"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qhibq"]
+radius = 212.0
+height = 1370.7009
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vt66m"]
+radius = 130.79759
 
 [node name="Workshop" type="Node2D"]
 script = ExtResource("1_h4m5q")
 letter_scene = ExtResource("2_m0rod")
+toy_scene = ExtResource("3_vt66m")
+
+[node name="Area_Table" type="Area2D" parent="."]
+z_index = 4
+position = Vector2(960, 540)
+
+[node name="Table_Sprite" type="Sprite2D" parent="Area_Table"]
+texture = ExtResource("4_vt66m")
+
+[node name="CollisionTable2D" type="CollisionShape2D" parent="Area_Table"]
+position = Vector2(8, 129)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_qhibq")
+debug_color = Color(0, 0.63933456, 0.37059203, 0.41960785)
+
+[node name="CollisionShelf" type="CollisionShape2D" parent="Area_Table"]
+position = Vector2(828.34, 0)
+shape = SubResource("CircleShape2D_vt66m")
+debug_color = Color(0.7573781, 0.45485276, 0, 0.41960785)
 
 [node name="LettersContainer" type="Node2D" parent="."]
 
 [node name="ToysContainer" type="Node2D" parent="."]
 
 [node name="CardOpener" parent="." instance=ExtResource("1_0uag0")]
-position = Vector2(800, 500)
+z_index = 7
+position = Vector2(1471, 696)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

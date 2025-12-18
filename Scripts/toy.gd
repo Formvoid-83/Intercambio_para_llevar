@@ -1,10 +1,14 @@
-extends Area2D
+class_name Toy extends Area2D
 
 signal released
 
 var dragging := true
 
-@onready var sprite := $Sprite2D
+@onready var sprite: Sprite2D = get_node("Sprite2D")
+
+
+func _ready() -> void:
+	print("El SPRITE es: ",sprite)
 
 func setup(data: ToyData, atlas: Texture2D):
 	var tex := AtlasTexture.new()

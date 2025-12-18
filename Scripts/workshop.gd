@@ -36,11 +36,10 @@ func _on_letter_read(letter):
 
 
 func _spawn_toy(toy_data: Variant) -> void:
-	var toy = toy_scene.instantiate()
+	var toy := toy_scene.instantiate() as Toy
+	toys_container.add_child(toy)
 	toy.setup(toy_data, ATLAS)
 	toy.released.connect(_on_toy_released)
-
-	toys_container.add_child(toy)
 	
 func _on_toy_released():
 	inventory.release_toy()
