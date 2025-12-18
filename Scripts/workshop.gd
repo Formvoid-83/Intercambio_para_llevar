@@ -12,6 +12,9 @@ extends Node2D
 
 const ATLAS := preload("res://Assets/Images/Gifts.png")
 
+@export var wrap_scene: PackedScene = preload("res://Scenes/wrap.tscn")
+const WRAP_ATLAS := preload("res://Assets/Images/Wrapping_Gifts.png")
+
 var letter_db := LetterDatabase.new()
 var data : LetterOpenData
 var letter : Node
@@ -30,13 +33,13 @@ func _ready():
 	spawn_random_letter()
 	area_table.shelf_clicked.connect(_on_shelf_clicked)
 	inventory.hide()
+	wrapping_panel.wrap_requested.connect(_on_wrap_requested)
 	wrapping_panel.hide()
 
 func spawn_random_letter():
 	if letter_db.letters.is_empty():
 		return
 
-	# Prevent multiple letters
 	if letters_container.get_child_count() > 0:
 		return
 
@@ -85,6 +88,33 @@ func _input(event):
 		drag_ghost.queue_free()
 		drag_ghost = null
 
+func _on_wrap_requested(wrap_data: WrapData):
+	var wrap := wrap_scene.instantiate() as Wrap
+	add_child(wrap)
+	wrap.setup(wrap_data, WRAP_ATLAS)
+	wrap.released.connect(_on_wrap_released)
+
+func _on_wrap_released(wrap: Wrap):
+	for child in toys_container.get_children():
+		if child is WorldToy:
+			if child.try_wrap(wrap, wrap.wrap_data, WRAP_ATLAS):
+				wrapping_panel.release_wrap()
+				return
+	# No toy accepted it
+	wrap.queue_free()
+	wrapping_panel.release_wrap()
+
+func _get_world_toy_under_point(pos: Vector2) -> WorldToy:
+	var space := get_world_2d().direct_space_state
+	var query := PhysicsPointQueryParameters2D.new()
+	query.position = pos
+	query.collide_with_areas = true
+
+	var results := space.intersect_point(query)
+	for r in results:
+		if r.collider is WorldToy:
+			return r.collider
+	return null
 
 
 func _finish_drag():
@@ -106,7 +136,6 @@ func _is_mouse_over_table() -> bool:
 
 	for r in results:
 		if r.collider == area_table:
-			print("✅ Colisión con la MESA detectada")
 			return true
 	return false
 

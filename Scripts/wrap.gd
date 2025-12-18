@@ -1,13 +1,15 @@
-class_name Wrap extends Area2D
+class_name Wrap
+extends Area2D
 
-signal released
+signal released(wrap: Wrap)
 
+var wrap_data: WrapData
 var dragging := true
 
-@onready var sprite: Sprite2D = get_node("Sprite2D")
-
+@onready var sprite: Sprite2D = $Sprite2D
 
 func setup(data: WrapData, atlas: Texture2D):
+	wrap_data = data
 	var tex := AtlasTexture.new()
 	tex.atlas = atlas
 	tex.region = data.region
@@ -23,4 +25,4 @@ func _unhandled_input(event):
 	and event.button_index == MOUSE_BUTTON_LEFT \
 	and not event.pressed:
 		dragging = false
-		emit_signal("released")
+		emit_signal("released", self)

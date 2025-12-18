@@ -1,6 +1,7 @@
 extends Control
 
-signal pressed(toy_data)
+signal pressed(data)
+
 
 var toy_data
 var wrap_data
@@ -17,7 +18,7 @@ func _ready() -> void:
 
 func setup_toy(data: ToyData, atlas: Texture2D, cell_region: Rect2):
 	toy_data = data
-
+	wrap_data = null
 	var bg_tex := AtlasTexture.new()
 	bg_tex.atlas = atlas
 	bg_tex.region = cell_region
@@ -32,6 +33,7 @@ func setup_toy(data: ToyData, atlas: Texture2D, cell_region: Rect2):
 
 func setup_wrap(data: WrapData, atlas: Texture2D, atlas2: Texture2D, cell_region:Rect2):
 	wrap_data = data
+	toy_data = null
 
 	var bg_tex := AtlasTexture.new()
 	bg_tex.atlas = atlas
@@ -49,4 +51,8 @@ func _gui_input(event):
 	if event is InputEventMouseButton \
 	and event.button_index == MOUSE_BUTTON_LEFT \
 	and event.pressed:
-		emit_signal("pressed", toy_data)
+
+		if wrap_data != null:
+			emit_signal("pressed", wrap_data)
+		elif toy_data != null:
+			emit_signal("pressed", toy_data)

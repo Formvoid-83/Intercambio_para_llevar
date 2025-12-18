@@ -55,6 +55,7 @@ debug_color = Color(0.85295105, 0.14333901, 0.82848, 0.41960785)
 [node name="LettersContainer" type="Node2D" parent="."]
 
 [node name="ToysContainer" type="Node2D" parent="."]
+z_index = 5
 position = Vector2(0, 400)
 
 [node name="CardOpener" parent="." instance=ExtResource("1_0uag0")]
