@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://ceg5sebd28r7a"]
+
+[ext_resource type="PackedScene" uid="uid://bce7kv00lhtmb" path="res://Scenes/main_menu.tscn" id="1_byv6p"]
+[ext_resource type="PackedScene" uid="uid://dckfa8iofjspr" path="res://Scenes/workshop.tscn" id="2_jos35"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Workshop" parent="." instance=ExtResource("2_jos35")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MainMenu" parent="CanvasLayer" instance=ExtResource("1_byv6p")]
