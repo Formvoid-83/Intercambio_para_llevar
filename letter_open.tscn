@@ -1,0 +1,74 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsgl7rooklnuo"]
+
+[ext_resource type="Script" uid="uid://dwbnpnetbdeca" path="res://Scripts/letter_open.gd" id="1_kgfyd"]
+[ext_resource type="Texture2D" uid="uid://dvkv5s6uok3tk" path="res://Assets/Images/Letter.png" id="2_ypp0v"]
+
+[node name="letter_open" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_kgfyd")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer"]
+layout_mode = 2
+texture = ExtResource("2_ypp0v")
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/TextureRect"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 2.0
+offset_right = 867.0
+offset_bottom = 1014.0
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="contentVBox" type="VBoxContainer" parent="CenterContainer/TextureRect/MarginContainer"]
+layout_mode = 2
+
+[node name="greetings" type="Label" parent="CenterContainer/TextureRect/MarginContainer/contentVBox"]
+layout_mode = 2
+text = "hola soy pepeito"
+
+[node name="spacerControl" type="Control" parent="CenterContainer/TextureRect/MarginContainer/contentVBox"]
+layout_mode = 2
+
+[node name="contentLabel" type="Label" parent="CenterContainer/TextureRect/MarginContainer/contentVBox"]
+layout_mode = 2
+text = "esta fae afmaosdfmn askdfmasdkjnfasdnmfklnasdj;fnalsdkmnf jkasdnhfknak jnask 
+ askdfnmkasdmfoam,ksdf
+ adsjfomaksd fioamkf
+a maokdf aokemfokame fijamnfamdlkfa
+"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="comision" type="Label" parent="CenterContainer/TextureRect/MarginContainer/contentVBox"]
+layout_mode = 2
+text = "la comision es 1000"
+
+[node name="FromLabel" type="Label" parent="CenterContainer/TextureRect/MarginContainer/contentVBox"]
+layout_mode = 2
+text = "de mi para ti pepito
+"
+horizontal_alignment = 2
+
+[node name="CloseButton" type="Button" parent="CenterContainer/TextureRect/MarginContainer/contentVBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7957751, 0.4828518, 0.12220555, 1)
+theme_override_colors/font_hover_color = Color(0.98614365, 0.902029, 0.73549384, 1)
+text = "Cerrar"
+flat = true
+
+[node name="spacerControl 2" type="Control" parent="CenterContainer/TextureRect/MarginContainer/contentVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[connection signal="pressed" from="CenterContainer/TextureRect/MarginContainer/contentVBox/CloseButton" to="." method="_on_close_button_pressed"]

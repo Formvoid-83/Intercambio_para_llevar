@@ -21,3 +21,7 @@ func _ready():
 	content_label.add_theme_color_override("font_color",font_color)
 	author_label.add_theme_color_override("font_color",font_color)
 	
+
+
+func _on_close_button_pressed() -> void:
+	hide()
