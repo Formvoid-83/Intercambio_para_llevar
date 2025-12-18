@@ -10,9 +10,10 @@ var dragging := true
 
 func setup(data: WrapData, atlas: Texture2D):
 	wrap_data = data
+
 	var tex := AtlasTexture.new()
 	tex.atlas = atlas
-	tex.region = data.region
+	tex.region = data.wrap_region
 	sprite.texture = tex
 	sprite.centered = true
 

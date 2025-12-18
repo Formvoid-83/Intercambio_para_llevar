@@ -17,10 +17,26 @@ var wrap_active := false
 
 func _ready() -> void:
 	var wraps = [
-		WrapData.new("Barato", Rect2(659.0,719.0,109.0,113.0), 5),
-		WrapData.new("Regular", Rect2(659.0,431.0,109.0,113.0), 15),
-		WrapData.new("Premium", Rect2(659.0,159.0,109.0,113.0), 30),
+		WrapData.new(
+			"Barato",
+			Rect2(659, 719, 109, 113),
+			Rect2(182, 623, 180, 210), 
+			5
+		),
+		WrapData.new(
+			"Regular",
+			Rect2(659, 431, 109, 113),
+			Rect2(182, 350, 180, 210),
+			15
+		),
+		WrapData.new(
+			"Premium",
+			Rect2(659, 159, 109, 113),
+			Rect2(182, 79, 180, 210),
+			30
+		),
 	]
+
 	for wrap in wraps:
 		var cell = preload("res://Scenes/inventory_cell.tscn").instantiate()
 		grid_container.add_child(cell)

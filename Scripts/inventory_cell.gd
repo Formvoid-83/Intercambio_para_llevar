@@ -42,7 +42,7 @@ func setup_wrap(data: WrapData, atlas: Texture2D, atlas2: Texture2D, cell_region
 
 	var wrap_tex := AtlasTexture.new()
 	wrap_tex.atlas = atlas2
-	wrap_tex.region = data.region
+	wrap_tex.region = data.wrap_region
 	icon.texture = wrap_tex
 
 	price.text = "$" + str(data.price)

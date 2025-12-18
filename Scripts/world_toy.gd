@@ -48,5 +48,5 @@ func apply_wrap(wrap_data: WrapData, atlas: Texture2D):
 	wrapping_sound.play()
 	var tex := AtlasTexture.new()
 	tex.atlas = atlas
-	tex.region = wrap_data.region
+	tex.region = wrap_data.wrapped_gift_region
 	sprite.texture = tex
