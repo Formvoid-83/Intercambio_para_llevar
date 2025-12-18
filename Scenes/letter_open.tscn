@@ -50,6 +50,14 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("3_37i5c")
 horizontal_alignment = 1
 
+[node name="closeButton" type="Button" parent="CenterContainer/TextureRect/MarginContainer/contentVBox"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_37i5c")
+text = "Cerrar"
+
 [node name="spacerControl 2" type="Control" parent="CenterContainer/TextureRect/MarginContainer/contentVBox"]
 layout_mode = 2
 size_flags_vertical = 3
+
+[connection signal="pressed" from="CenterContainer/TextureRect/MarginContainer/contentVBox/closeButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CenterContainer/TextureRect/MarginContainer/contentVBox/closeButton" to="." method="_on_close_button_pressed"]

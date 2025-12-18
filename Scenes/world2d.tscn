@@ -1,12 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://dtiv7ohkma2d2"]
+[gd_scene load_steps=4 format=3 uid="uid://dtiv7ohkma2d2"]
 
-[ext_resource type="PackedScene" path="res://Scenes/main_menu.tscn" id="1_byv6p"]
+[ext_resource type="PackedScene" uid="uid://bce7kv00lhtmb" path="res://Scenes/main_menu.tscn" id="1_byv6p"]
 [ext_resource type="PackedScene" uid="uid://dckfa8iofjspr" path="res://Scenes/workshop.tscn" id="2_jos35"]
+[ext_resource type="PackedScene" uid="uid://cbabsf0iog12r" path="res://Scenes/hud_layer.tscn" id="2_k0joy"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Workshop" parent="." instance=ExtResource("2_jos35")]
 
+[node name="HUD_Layer" parent="." instance=ExtResource("2_k0joy")]
+z_index = 10
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="MainMenu" parent="CanvasLayer" instance=ExtResource("1_byv6p")]
+visible = false
