@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://co0xn8yr1tkir"]
+[gd_scene load_steps=4 format=3 uid="uid://co0xn8yr1tkir"]
 
 [ext_resource type="Script" uid="uid://dwbnpnetbdeca" path="res://Scripts/letter_open.gd" id="1_kgfyd"]
 [ext_resource type="Texture2D" uid="uid://dvkv5s6uok3tk" path="res://Assets/Images/Letter.png" id="2_ypp0v"]
+[ext_resource type="FontFile" uid="uid://c32r2eo3o2baq" path="res://Assets/Fonts/pixeled/Pixeled.ttf" id="3_37i5c"]
 
 [node name="letter_open" type="Control"]
 layout_mode = 3
@@ -35,15 +36,18 @@ layout_mode = 2
 
 [node name="greetings" type="Label" parent="CenterContainer/TextureRect/MarginContainer/contentVBox"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_37i5c")
 
 [node name="spacerControl" type="Control" parent="CenterContainer/TextureRect/MarginContainer/contentVBox"]
 layout_mode = 2
 
 [node name="contentLabel" type="Label" parent="CenterContainer/TextureRect/MarginContainer/contentVBox"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_37i5c")
 
 [node name="FromLabel" type="Label" parent="CenterContainer/TextureRect/MarginContainer/contentVBox"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_37i5c")
 horizontal_alignment = 1
 
 [node name="spacerControl 2" type="Control" parent="CenterContainer/TextureRect/MarginContainer/contentVBox"]

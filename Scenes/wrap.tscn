@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwp0nwlleeeqf"]
+
+[ext_resource type="Script" uid="uid://b2i3f5u7rboyn" path="res://Scripts/toy.gd" id="1_5l8lm"]
+[ext_resource type="Texture2D" uid="uid://b277dl5xhetxe" path="res://Assets/Images/Wrapping_Gifts.png" id="2_5l8lm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_58p4q"]
+size = Vector2(110, 113)
+
+[node name="Wrap" type="Area2D"]
+script = ExtResource("1_5l8lm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_5l8lm")
+region_enabled = true
+region_rect = Rect2(659, 719, 109, 113)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_58p4q")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_58p4q")

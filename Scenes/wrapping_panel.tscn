@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://mpjgbql8egmy"]
+[gd_scene load_steps=3 format=3 uid="uid://c021kselxnjvj"]
 
-[ext_resource type="Script" uid="uid://bklkhmm6ogoye" path="res://Scripts/inventory_panel.gd" id="1_4ij40"]
-[ext_resource type="AudioStream" uid="uid://c73yp6o48sclb" path="res://Assets/Sounds/drawer.wav" id="2_as1yr"]
+[ext_resource type="Script" uid="uid://c23g6i25t1x0r" path="res://Scripts/wrapping_panel.gd" id="1_ht0lp"]
+[ext_resource type="AudioStream" uid="uid://c73yp6o48sclb" path="res://Assets/Sounds/drawer.wav" id="2_5tmy1"]
 
-[node name="InventoryPanel" type="Control"]
+[node name="WrappingPanel" type="Control"]
 custom_minimum_size = Vector2(512, 352)
 layout_mode = 3
 anchors_preset = 7
@@ -18,7 +18,7 @@ offset_bottom = -728.0
 grow_horizontal = 2
 grow_vertical = 0
 pivot_offset = Vector2(256, 176)
-script = ExtResource("1_4ij40")
+script = ExtResource("1_ht0lp")
 
 [node name="Background" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(512, 352)
@@ -47,7 +47,7 @@ offset_top = -352.0
 offset_right = 256.0
 grow_horizontal = 2
 grow_vertical = 0
-columns = 4
+columns = 3
 
 [node name="AudioDrawer" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("2_as1yr")
+stream = ExtResource("2_5tmy1")

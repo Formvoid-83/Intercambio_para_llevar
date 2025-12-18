@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dckfa8iofjspr"]
+[gd_scene load_steps=14 format=3 uid="uid://dckfa8iofjspr"]
 
 [ext_resource type="PackedScene" uid="uid://bawd52ey5er7t" path="res://Scenes/card_opener.tscn" id="1_0uag0"]
 [ext_resource type="Script" uid="uid://bn88pxcoowbbd" path="res://Scripts/workshop.gd" id="1_h4m5q"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dp1nwt0cy5n51" path="res://Assets/Images/workshop_table_shelf.png" id="4_vt66m"]
 [ext_resource type="PackedScene" uid="uid://mpjgbql8egmy" path="res://Scenes/inventory_panel.tscn" id="5_fakrd"]
 [ext_resource type="Script" uid="uid://cl8venik3dnng" path="res://Scripts/inventory_handle.gd" id="6_7nc4v"]
+[ext_resource type="PackedScene" uid="uid://c021kselxnjvj" path="res://Scenes/wrapping_panel.tscn" id="10_ap34w"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qhibq"]
 radius = 212.0
@@ -16,6 +17,9 @@ height = 1370.7009
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vt66m"]
 radius = 130.79759
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ap34w"]
+radius = 117.00427
 
 [node name="Workshop" type="Node2D"]
 script = ExtResource("1_h4m5q")
@@ -40,6 +44,11 @@ debug_color = Color(0, 0.63933456, 0.37059203, 0.41960785)
 position = Vector2(828.34, 0)
 shape = SubResource("CircleShape2D_vt66m")
 debug_color = Color(0.7573781, 0.45485276, 0, 0.41960785)
+
+[node name="CollisionWrap" type="CollisionShape2D" parent="Area_Table"]
+position = Vector2(664, -188)
+shape = SubResource("CircleShape2D_ap34w")
+debug_color = Color(0.85295105, 0.14333901, 0.82848, 0.41960785)
 
 [node name="LettersContainer" type="Node2D" parent="."]
 
@@ -77,4 +86,16 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("6_7nc4v")
 
+[node name="CanvasWrapping" type="CanvasLayer" parent="."]
+
+[node name="WrappingPanel" parent="CanvasWrapping" instance=ExtResource("10_ap34w")]
+anchors_preset = 12
+anchor_left = 0.0
+anchor_right = 1.0
+offset_left = 0.0
+offset_top = -180.0
+offset_right = 0.0
+offset_bottom = 172.00134
+
+[connection signal="wrap_clicked" from="Area_Table" to="." method="_on_area_table_wrap_clicked"]
 [connection signal="toy_requested" from="CanvasToys/InventoryPanel" to="." method="_spawn_toy"]

@@ -1,4 +1,4 @@
-class_name Toy extends Area2D
+class_name Wrap extends Area2D
 
 signal released
 
@@ -7,7 +7,7 @@ var dragging := true
 @onready var sprite: Sprite2D = get_node("Sprite2D")
 
 
-func setup(data: ToyData, atlas: Texture2D):
+func setup(data: WrapData, atlas: Texture2D):
 	var tex := AtlasTexture.new()
 	tex.atlas = atlas
 	tex.region = data.region

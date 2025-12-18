@@ -1,6 +1,7 @@
 extends Area2D
 
 signal shelf_clicked
+signal wrap_clicked
 
 func _input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton \
@@ -12,3 +13,5 @@ func _input_event(viewport, event, shape_idx):
 
 		if shape_node.name == "CollisionShelf":
 			emit_signal("shelf_clicked")
+		elif shape_node.name == "CollisionWrap":
+			emit_signal("wrap_clicked")

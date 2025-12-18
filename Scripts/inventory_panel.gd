@@ -3,6 +3,7 @@ extends Control
 signal toy_requested(toy_data)
 
 @onready var grid_container: GridContainer = $GridContainer
+@onready var audio_drawer: AudioStreamPlayer2D = $AudioDrawer
 
 const ATLAS := preload("res://Assets/Images/Gifts.png")
 const CELL_REGION := Rect2(800.0, 48.0, 128.0, 176.0)
@@ -28,11 +29,12 @@ func _ready() -> void:
 	for toy in toys:
 		var cell = preload("res://Scenes/inventory_cell.tscn").instantiate()
 		grid_container.add_child(cell)
-		cell.setup(toy, ATLAS, CELL_REGION)
+		cell.setup_toy(toy, ATLAS, CELL_REGION)
 		cell.pressed.connect(request_toy)
 		
 
 func toggle():
+	audio_drawer.play()
 	is_open = !is_open
 	visible = is_open
 
