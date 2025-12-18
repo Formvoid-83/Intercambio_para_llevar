@@ -60,7 +60,6 @@ z_index = 7
 position = Vector2(1471, 696)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="letter_open" parent="CanvasLayer" instance=ExtResource("4_m0rod")]
 offset_left = 563.0
@@ -97,5 +96,6 @@ offset_top = -180.0
 offset_right = 0.0
 offset_bottom = 172.00134
 
+[connection signal="table_dropped" from="Area_Table" to="." method="_on_table_dropped"]
 [connection signal="wrap_clicked" from="Area_Table" to="." method="_on_area_table_wrap_clicked"]
 [connection signal="toy_requested" from="CanvasToys/InventoryPanel" to="." method="_spawn_toy"]

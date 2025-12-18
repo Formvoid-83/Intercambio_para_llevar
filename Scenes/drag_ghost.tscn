@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://brqf4u1pjcwnw"]
+
+[ext_resource type="Script" uid="uid://djulvljpp4x0k" path="res://Scripts/drag_ghost.gd" id="1_thi36"]
+
+[node name="DragGhost" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_thi36")
+
+[node name="Icon" type="TextureRect" parent="."]
+z_index = 5
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
