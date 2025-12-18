@@ -14,7 +14,7 @@ var toy_active := false
 @onready var open_y := 0
 
 func _ready() -> void:
-	position.y = closed_y
+	#position.y = closed_y
 	var toys = [
 		ToyData.new("Ball", Rect2(1176.0,232.0,104.0,96.0), 5),
 		ToyData.new("Ula ula", Rect2(1008.0,248.0,112.0,112.0), 5),
@@ -34,7 +34,7 @@ func _ready() -> void:
 
 func toggle():
 	is_open = !is_open
-	position.y = open_y if is_open else closed_y
+	visible = is_open
 
 func request_toy(toy_data):
 	if toy_active:

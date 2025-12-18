@@ -6,6 +6,7 @@ extends Node2D
 @onready var toys_container: Node2D = $ToysContainer
 @onready var letters_container: Node2D = $LettersContainer
 @onready var letter_popup: Control = $CanvasLayer/letter_open
+@onready var area_table: Area2D = $Area_Table
 
 const ATLAS := preload("res://Assets/Images/Gifts.png")
 
@@ -18,6 +19,8 @@ func _ready():
 	inventory.toy_requested.connect(_spawn_toy)
 	letter_db.load_letters()
 	spawn_random_letter()
+	area_table.shelf_clicked.connect(_on_shelf_clicked)
+	inventory.hide()
 
 func spawn_random_letter():
 	if letter_db.letters.is_empty():
@@ -43,3 +46,6 @@ func _spawn_toy(toy_data: Variant) -> void:
 	
 func _on_toy_released():
 	inventory.release_toy()
+	
+func _on_shelf_clicked():
+	inventory.toggle()

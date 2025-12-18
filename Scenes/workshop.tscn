@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://dckfa8iofjspr"]
+[gd_scene load_steps=12 format=3 uid="uid://dckfa8iofjspr"]
 
 [ext_resource type="PackedScene" uid="uid://bawd52ey5er7t" path="res://Scenes/card_opener.tscn" id="1_0uag0"]
 [ext_resource type="Script" uid="uid://bn88pxcoowbbd" path="res://Scripts/workshop.gd" id="1_h4m5q"]
 [ext_resource type="PackedScene" uid="uid://bl2pcgsurq58w" path="res://Scenes/letter.tscn" id="2_m0rod"]
 [ext_resource type="PackedScene" uid="uid://3yojtyhke3jh" path="res://Scenes/toy.tscn" id="3_vt66m"]
+[ext_resource type="Script" uid="uid://ddef3i2xfiqkv" path="res://Scripts/area_table.gd" id="4_2xyou"]
 [ext_resource type="PackedScene" uid="uid://co0xn8yr1tkir" path="res://Scenes/letter_open.tscn" id="4_m0rod"]
 [ext_resource type="Texture2D" uid="uid://dp1nwt0cy5n51" path="res://Assets/Images/workshop_table_shelf.png" id="4_vt66m"]
 [ext_resource type="PackedScene" uid="uid://mpjgbql8egmy" path="res://Scenes/inventory_panel.tscn" id="5_fakrd"]
@@ -24,6 +25,7 @@ toy_scene = ExtResource("3_vt66m")
 [node name="Area_Table" type="Area2D" parent="."]
 z_index = 4
 position = Vector2(960, 540)
+script = ExtResource("4_2xyou")
 
 [node name="Table_Sprite" type="Sprite2D" parent="Area_Table"]
 texture = ExtResource("4_vt66m")
@@ -42,12 +44,14 @@ debug_color = Color(0.7573781, 0.45485276, 0, 0.41960785)
 [node name="LettersContainer" type="Node2D" parent="."]
 
 [node name="ToysContainer" type="Node2D" parent="."]
+position = Vector2(0, 400)
 
 [node name="CardOpener" parent="." instance=ExtResource("1_0uag0")]
 z_index = 7
 position = Vector2(1471, 696)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="letter_open" parent="CanvasLayer" instance=ExtResource("4_m0rod")]
 offset_left = 563.0
@@ -58,6 +62,13 @@ offset_bottom = 66.0
 [node name="CanvasToys" type="CanvasLayer" parent="."]
 
 [node name="InventoryPanel" parent="CanvasToys" instance=ExtResource("5_fakrd")]
+anchors_preset = 12
+anchor_left = 0.0
+anchor_right = 1.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
 
 [node name="InventoryHandle" type="Control" parent="CanvasToys"]
 layout_mode = 3
