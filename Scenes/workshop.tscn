@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dckfa8iofjspr"]
+[gd_scene load_steps=17 format=3 uid="uid://dckfa8iofjspr"]
 
 [ext_resource type="PackedScene" uid="uid://bawd52ey5er7t" path="res://Scenes/card_opener.tscn" id="1_0uag0"]
 [ext_resource type="Script" uid="uid://bn88pxcoowbbd" path="res://Scripts/workshop.gd" id="1_h4m5q"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dp1nwt0cy5n51" path="res://Assets/Images/workshop_table_shelf.png" id="4_vt66m"]
 [ext_resource type="PackedScene" uid="uid://mpjgbql8egmy" path="res://Scenes/inventory_panel.tscn" id="5_fakrd"]
 [ext_resource type="Script" uid="uid://cl8venik3dnng" path="res://Scripts/inventory_handle.gd" id="6_7nc4v"]
+[ext_resource type="Texture2D" uid="uid://cg85mt77hy7pj" path="res://Assets/Images/workstation.png" id="7_wd2np"]
 [ext_resource type="PackedScene" uid="uid://c021kselxnjvj" path="res://Scenes/wrapping_panel.tscn" id="10_ap34w"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qhibq"]
@@ -21,6 +22,9 @@ radius = 130.79759
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ap34w"]
 radius = 117.00427
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wd2np"]
+size = Vector2(1302.5, 150)
 
 [node name="Workshop" type="Node2D"]
 script = ExtResource("1_h4m5q")
@@ -52,6 +56,17 @@ position = Vector2(664, -188)
 shape = SubResource("CircleShape2D_ap34w")
 debug_color = Color(0.85295105, 0.14333901, 0.82848, 0.41960785)
 
+[node name="Area_Deploy&Background" type="Area2D" parent="."]
+position = Vector2(960, 540)
+
+[node name="Background_Sprite" type="Sprite2D" parent="Area_Deploy&Background"]
+texture = ExtResource("7_wd2np")
+
+[node name="Collision_Deploy" type="CollisionShape2D" parent="Area_Deploy&Background"]
+position = Vector2(-110.75, -263)
+shape = SubResource("RectangleShape2D_wd2np")
+debug_color = Color(0.74445206, 0, 0.27710482, 0.41960785)
+
 [node name="LettersContainer" type="Node2D" parent="."]
 
 [node name="ToysContainer" type="Node2D" parent="."]
@@ -63,6 +78,7 @@ z_index = 7
 position = Vector2(1471, 696)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="letter_open" parent="CanvasLayer" instance=ExtResource("4_m0rod")]
 offset_left = 563.0
