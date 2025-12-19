@@ -12,7 +12,7 @@ func show_letter(data: LetterOpenData):
 	greetings_label.text = data.greetings
 	content_label.text = data.content
 	author_label.text = data.author
-	comm_label.text = str(data.comission)
+	comm_label.text = "Adjunto: %s $" % data.comission
 
 func hide_popup():
 	visible = false
@@ -22,7 +22,7 @@ func _ready():
 	greetings_label.add_theme_color_override("font_color",font_color)
 	content_label.add_theme_color_override("font_color",font_color)
 	author_label.add_theme_color_override("font_color",font_color)
-	comm_label.add_theme_color_override("front_color", font_color)
+	comm_label.add_theme_color_override("font_color", font_color)
 	
 
 

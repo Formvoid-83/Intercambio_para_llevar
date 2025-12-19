@@ -13,10 +13,16 @@ extends Node2D
 @onready var timer: Timer = $Timer
 @onready var timer_label: Label = $CanvasLayer2/Panel/Label
 @onready var results_panel: Panel = $CanvasLayer3/Panel
+@onready var hud := get_parent().get_node("HUD_Layer")
+
+
 
 const ATLAS := preload("res://Assets/Images/Gifts.png")
 var time_left: int
 var total_time :=  180
+
+var current_commission := 0
+
 
 @export var wrap_scene: PackedScene = preload("res://Scenes/wrap.tscn")
 const WRAP_ATLAS := preload("res://Assets/Images/Wrapping_Gifts.png")
@@ -33,6 +39,7 @@ const LETTER_TARGET_POS := Vector2(90, 600)
 
 
 func _ready():
+	hud.setup(500) #La meta diaria del shift del día
 	area_table.table_dropped.connect(_on_table_dropped)
 	inventory.toy_requested.connect(_spawn_toy)
 	letter_db.load_letters()
@@ -64,8 +71,9 @@ func spawn_random_letter():
 
 
 
-func _on_letter_read(letter):
-	letter_popup.show_letter(letter)
+func _on_letter_read(data: LetterOpenData):
+	current_commission = data.comission
+	letter_popup.show_letter(data)
 
 
 func _spawn_toy(toy_data: Variant) -> void:
@@ -126,8 +134,7 @@ func _get_world_toy_under_point(pos: Vector2) -> WorldToy:
 			return r.collider
 	return null
 
-
-func _finish_drag():
+func _finish_drag():	
 	drag_ghost.queue_free()
 	drag_ghost = null
 	var drop_pos := get_global_mouse_position()
@@ -174,7 +181,12 @@ func _spawn_real_toy(toy_data: ToyData, pos: Vector2):
 	toy.setup(toy_data, ATLAS)
 	toy.deployed.connect(_on_world_toy_deployed) 
 	
-func _on_world_toy_deployed():
+func _on_world_toy_deployed(toy: WorldToy):
+	print("DEPLOYED:", toy)
+	var total_cost := toy.toy_cost + toy.wrap_cost
+	var delta := current_commission - total_cost
+
+	hud.apply_delta(delta)
 	if letter and is_instance_valid(letter):
 		letter.queue_free()
 		letter = null

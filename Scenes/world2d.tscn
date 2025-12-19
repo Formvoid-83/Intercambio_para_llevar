@@ -6,10 +6,10 @@
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Workshop" parent="." instance=ExtResource("2_jos35")]
-
 [node name="HUD_Layer" parent="." instance=ExtResource("2_k0joy")]
 z_index = 10
+
+[node name="Workshop" parent="." instance=ExtResource("2_jos35")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

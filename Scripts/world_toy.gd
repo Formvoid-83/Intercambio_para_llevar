@@ -1,11 +1,13 @@
 extends Area2D
 class_name WorldToy
 
-signal deployed
+signal deployed(toy: WorldToy)
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var wrapping_sound: AudioStreamPlayer2D = $Wrapping_Sound
 @onready var assembly_sound: AudioStreamPlayer2D = $Assembly_Sound
 
+var toy_cost := 0
+var wrap_cost := 0
 
 var dragging := false
 var drag_offset := Vector2.ZERO
@@ -14,6 +16,7 @@ var is_deploying := false
 
 func setup(data: ToyData, atlas: Texture2D):
 	var tex := AtlasTexture.new()
+	toy_cost = data.price
 	tex.atlas = atlas
 	tex.region = data.region
 	sprite.texture = tex
@@ -51,6 +54,7 @@ func apply_wrap(wrap_data: WrapData, atlas: Texture2D):
 		return
 
 	is_wrapped = true
+	wrap_cost = wrap_data.price
 	wrapping_sound.play()
 	var tex := AtlasTexture.new()
 	tex.atlas = atlas
@@ -82,6 +86,6 @@ func deploy():
 		5
 	)
 	tween.finished.connect(func():
-		emit_signal("deployed")
+		emit_signal("deployed", self)
 		queue_free()
 	)

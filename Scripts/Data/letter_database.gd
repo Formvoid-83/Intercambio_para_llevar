@@ -21,6 +21,7 @@ func load_letters(path := "res://Data/letters.json") -> void:
 			LetterOpenData.new(
 				entry["greetings"],
 				entry["content"],
-				entry["from"]
+				entry["from"],
+				entry["commission"]
 			)
 		)
