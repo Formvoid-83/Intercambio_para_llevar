@@ -7,7 +7,9 @@
 	para mi regalo de navidad quisiera 
 	que el vuelva a casa, 
 	puedes traer a papa de vuelta?",
-	  "from": "Tommy"
+	  "from": "Tommy",
+	"commission": 50
+	
 	},	
 	{
 	  "greetings": "",
@@ -16,7 +18,8 @@
 	pero yo quiero un PS5, 
 	he sido una buena niña 
 	y quisiera que me lo traigas.",
-	  "from": "Paula"
+	  "from": "Paula",
+	"commission": 50
 	},
 	{
 	  "greetings": "Como estas santa?",
@@ -25,7 +28,8 @@
 	hay muchos ositos polares, 
 	siempre he querido ver uno, 
 	por favo traeme un osito polar",
-	  "from": "Muchas gracias Santa"
+	  "from": "Muchas gracias Santa",
+	"commission": 50
 	},
 	{
 	  "greetings": "",
@@ -33,12 +37,14 @@
 	mis padres no quieren comprarme nada,
 	 dicen que deberia portarme bien,
 	 pero yo siempre me porto bien.",
-	  "from": ""
+	  "from": "",
+	"commission": 50
 	},
 	{
 	  "greetings": "",
 	  "content": "Dame dinero",
-	  "from": ""
+	  "from": "",
+	"commission": 50
 	},
 	{
 	  "greetings": "",
@@ -48,7 +54,8 @@
 		ellas juegan con munecas 
 		y yo no quiero jugar con munecas
 		gracias Santa",
-	  "from": "Claudio"
+	  "from": "Claudio",
+	"commission": 50
 	},
   ]
 }

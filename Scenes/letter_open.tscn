@@ -50,6 +50,11 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("3_37i5c")
 horizontal_alignment = 1
 
+[node name="CommLabel" type="Label" parent="CenterContainer/TextureRect/MarginContainer/contentVBox"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_37i5c")
+horizontal_alignment = 1
+
 [node name="closeButton" type="Button" parent="CenterContainer/TextureRect/MarginContainer/contentVBox"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_37i5c")

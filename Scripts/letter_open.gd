@@ -3,6 +3,7 @@ extends Control
 @onready var greetings_label = $CenterContainer/TextureRect/MarginContainer/contentVBox/greetings
 @onready var content_label = $CenterContainer/TextureRect/MarginContainer/contentVBox/contentLabel
 @onready var author_label = $CenterContainer/TextureRect/MarginContainer/contentVBox/FromLabel
+@onready var comm_label= $CenterContainer/TextureRect/MarginContainer/contentVBox/CommLabel
 
 const font_color: Color = Color(0,0,0)
 
@@ -11,6 +12,7 @@ func show_letter(data: LetterOpenData):
 	greetings_label.text = data.greetings
 	content_label.text = data.content
 	author_label.text = data.author
+	comm_label.text = str(data.comission)
 
 func hide_popup():
 	visible = false
@@ -20,6 +22,7 @@ func _ready():
 	greetings_label.add_theme_color_override("font_color",font_color)
 	content_label.add_theme_color_override("font_color",font_color)
 	author_label.add_theme_color_override("font_color",font_color)
+	comm_label.add_theme_color_override("front_color", font_color)
 	
 
 

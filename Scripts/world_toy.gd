@@ -18,7 +18,7 @@ func setup(data: ToyData, atlas: Texture2D):
 	tex.region = data.region
 	sprite.texture = tex
 
-	scale = Vector2(2.5, 2.5)
+	scale = Vector2(1.8, 1.8)
 	z_index = 100
 
 func _input_event(viewport, event, shape_idx):

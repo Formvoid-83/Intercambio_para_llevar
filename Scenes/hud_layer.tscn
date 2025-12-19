@@ -1,4 +1,6 @@
-[gd_scene load_steps=0 format=3 uid="uid://cbabsf0iog12r"]
+[gd_scene load_steps=2 format=3 uid="uid://cbabsf0iog12r"]
+
+[ext_resource type="FontFile" uid="uid://c32r2eo3o2baq" path="res://Assets/Fonts/pixeled/Pixeled.ttf" id="1_jwgxj"]
 
 [node name="HUD" type="Control"]
 layout_direction = 2
@@ -25,6 +27,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("1_jwgxj")
 text = "puntos:300
 "
 
