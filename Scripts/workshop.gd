@@ -9,13 +9,10 @@ extends Node2D
 @onready var letters_container: Node2D = $LettersContainer
 @onready var letter_popup: Control = $CanvasLayer/letter_open
 @onready var area_table: Area2D = $Area_Table
-<<<<<<< Updated upstream
 @onready var deploy_area: Area2D = $"Area_Deploy&Background"
-=======
 @onready var timer: Timer = $Timer
 @onready var timer_label: Label = $CanvasLayer2/Panel/Label
 @onready var results_panel: Panel = $CanvasLayer3/Panel
->>>>>>> Stashed changes
 
 const ATLAS := preload("res://Assets/Images/Gifts.png")
 var time_left: int
