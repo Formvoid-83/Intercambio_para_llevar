@@ -9,9 +9,17 @@ extends Node2D
 @onready var letters_container: Node2D = $LettersContainer
 @onready var letter_popup: Control = $CanvasLayer/letter_open
 @onready var area_table: Area2D = $Area_Table
+<<<<<<< Updated upstream
 @onready var deploy_area: Area2D = $"Area_Deploy&Background"
+=======
+@onready var timer: Timer = $Timer
+@onready var timer_label: Label = $CanvasLayer2/Panel/Label
+@onready var results_panel: Panel = $CanvasLayer3/Panel
+>>>>>>> Stashed changes
 
 const ATLAS := preload("res://Assets/Images/Gifts.png")
+var time_left: int
+var total_time :=  180
 
 @export var wrap_scene: PackedScene = preload("res://Scenes/wrap.tscn")
 const WRAP_ATLAS := preload("res://Assets/Images/Wrapping_Gifts.png")
@@ -36,6 +44,12 @@ func _ready():
 	inventory.hide()
 	wrapping_panel.wrap_requested.connect(_on_wrap_requested)
 	wrapping_panel.hide()
+	time_left = total_time
+	update_label()
+	results_panel.visible = false
+
+	timer.timeout.connect(_on_timer_timeout)
+	timer.start()
 
 func spawn_random_letter():
 	if letter_db.letters.is_empty():
@@ -205,3 +219,24 @@ func _on_shelf_clicked():
 	
 func _on_area_table_wrap_clicked() -> void:
 	wrapping_panel.toggle()
+
+func _on_timer_timeout():
+	time_left -= 1
+	update_label()
+
+	if time_left <= 0:
+		timer.stop()
+		on_time_finished()
+
+func update_label():
+	timer_label.text = format_time(time_left)
+
+
+func format_time(seconds: int) -> String:
+	var minutes = seconds / 60
+	var secs = seconds % 60
+	return "%02d:%02d" % [minutes, secs]
+
+func on_time_finished():
+	results_panel.visible = true
+	get_tree().paused = true  # optional: freeze game

@@ -1,19 +1,54 @@
 {
   "letters": [
 	{
-	  "greetings": "Dear Santa",
-	  "content": "I have been good this year. I would like a red bicycle.",
-	  "from": "Timmy"
+	  "greetings": "Buenos dias Santa",
+	  "content": "Papa no ha vuelto desde 
+	have unas semanas, 
+	para mi regalo de navidad quisiera 
+	que el vuelva a casa, 
+	puedes traer a papa de vuelta?",
+	  "from": "Tommy"
+	},	
+	{
+	  "greetings": "",
+	  "content": "Santa, 
+	todas las niñas quieren un vestido, 
+	pero yo quiero un PS5, 
+	he sido una buena niña 
+	y quisiera que me lo traigas.",
+	  "from": "Paula"
 	},
 	{
-	  "greetings": "Hello!",
-	  "content": "I want a doll and a teddy bear.",
-	  "from": "Anna"
+	  "greetings": "Como estas santa?",
+	  "content": "Holaa Santaaaa, 
+	he escuchado que en el Polo norte 
+	hay muchos ositos polares, 
+	siempre he querido ver uno, 
+	por favo traeme un osito polar",
+	  "from": "Muchas gracias Santa"
 	},
 	{
-	  "greetings": "Dear Santa",
-	  "content": "Please bring me a train set and some books.",
-	  "from": "Lucas"
-	}
+	  "greetings": "",
+	  "content": "Quiero un pony, 
+	mis padres no quieren comprarme nada,
+	 dicen que deberia portarme bien,
+	 pero yo siempre me porto bien.",
+	  "from": ""
+	},
+	{
+	  "greetings": "",
+	  "content": "Dame dinero",
+	  "from": ""
+	},
+	{
+	  "greetings": "",
+	  "content": "Santaa quiero alguien con quien jugar,
+		quiero tener un hermanito, 
+		no quiero una hermana, 
+		ellas juegan con munecas 
+		y yo no quiero jugar con munecas
+		gracias Santa",
+	  "from": "Claudio"
+	},
   ]
 }
