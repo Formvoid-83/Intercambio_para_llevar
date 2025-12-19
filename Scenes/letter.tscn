@@ -10,7 +10,7 @@
 size = Vector2(241, 113)
 
 [node name="Letter" type="Area2D"]
-z_index = 5
+z_index = 10
 collision_layer = 2
 script = ExtResource("1_7n1mw")
 

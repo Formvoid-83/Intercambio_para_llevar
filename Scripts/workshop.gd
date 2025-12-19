@@ -9,6 +9,7 @@ extends Node2D
 @onready var letters_container: Node2D = $LettersContainer
 @onready var letter_popup: Control = $CanvasLayer/letter_open
 @onready var area_table: Area2D = $Area_Table
+@onready var deploy_area: Area2D = $"Area_Deploy&Background"
 
 const ATLAS := preload("res://Assets/Images/Gifts.png")
 
@@ -39,19 +40,17 @@ func _ready():
 func spawn_random_letter():
 	if letter_db.letters.is_empty():
 		return
-
 	if letters_container.get_child_count() > 0:
 		return
-
 	var data = letter_db.letters.pick_random()
-	var letter := letter_scene.instantiate()
+	letter = letter_scene.instantiate() 
 
 	letter.set_letter_data(data)
 	letter.read_requested.connect(_on_letter_read)
 
 	letters_container.add_child(letter)
-	
 	letter.drop_to(LETTER_TARGET_POS)
+
 
 
 func _on_letter_read(letter):
@@ -162,7 +161,39 @@ func _spawn_real_toy(toy_data: ToyData, pos: Vector2):
 
 	toy.global_position = pos
 	toy.setup(toy_data, ATLAS)
+	toy.deployed.connect(_on_world_toy_deployed) 
+	
+func _on_world_toy_deployed():
+	if letter and is_instance_valid(letter):
+		letter.queue_free()
+		letter = null
 
+	await get_tree().create_timer(0.2).timeout
+	spawn_random_letter()
+
+func _is_mouse_over_deploy_area() -> bool:
+	var space := get_world_2d().direct_space_state
+	var query := PhysicsPointQueryParameters2D.new()
+	query.position = get_global_mouse_position()
+	query.collide_with_areas = true
+
+	var results := space.intersect_point(query)
+	for r in results:
+		if r.collider == deploy_area:
+			return true
+	return false
+
+func _unhandled_input(event):
+	if event is InputEventMouseButton \
+	and event.button_index == MOUSE_BUTTON_LEFT \
+	and not event.pressed:
+		for child in toys_container.get_children():
+			if child is WorldToy \
+			and child.dragging \
+			and child.is_wrapped \
+			and _is_mouse_over_deploy_area():
+				child.deploy()
+				return
 
 
 func _on_toy_released():

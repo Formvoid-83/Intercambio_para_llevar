@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://di6jx88d8gre1"]
+[gd_scene load_steps=5 format=3 uid="uid://di6jx88d8gre1"]
 
 [ext_resource type="Script" uid="uid://dipy2e005jye" path="res://Scripts/world_toy.gd" id="1_gwmj0"]
 [ext_resource type="AudioStream" uid="uid://blckbd0v1s0ep" path="res://Assets/Sounds/wrapping-paper.wav" id="2_oo54l"]
+[ext_resource type="AudioStream" uid="uid://by0y6o2ucrduw" path="res://Assets/Sounds/assembly-line.wav" id="3_mdev3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gwmj0"]
 size = Vector2(34.8, 29.199999)
@@ -19,3 +20,6 @@ shape = SubResource("RectangleShape2D_gwmj0")
 
 [node name="Wrapping_Sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_oo54l")
+
+[node name="Assembly_Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_mdev3")

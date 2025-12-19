@@ -33,7 +33,7 @@ toy_scene = ExtResource("3_vt66m")
 world_toy_scene = ExtResource("4_s7tup")
 
 [node name="Area_Table" type="Area2D" parent="."]
-z_index = 4
+z_index = 7
 position = Vector2(960, 540)
 script = ExtResource("4_2xyou")
 
