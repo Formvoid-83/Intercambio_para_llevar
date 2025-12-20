@@ -9,7 +9,13 @@
 [node name="HUD_Layer" parent="." instance=ExtResource("2_k0joy")]
 z_index = 10
 
+<<<<<<< HEAD
 [node name="Workshop" parent="." instance=ExtResource("2_jos35")]
+=======
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="MainMenu" parent="CanvasLayer2" instance=ExtResource("1_byv6p")]
+>>>>>>> josue
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
