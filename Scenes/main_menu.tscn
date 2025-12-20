@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bce7kv00lhtmb"]
+[gd_scene load_steps=3 format=3 uid="uid://bce7kv00lhtmb"]
 
 [ext_resource type="Script" uid="uid://b7daf6brdn1t6" path="res://main_menu.gd" id="1_28flt"]
+[ext_resource type="Texture2D" uid="uid://cnndwsux2yqlt" path="res://Assets/Images/awazon.png" id="2_48xlc"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -12,6 +13,7 @@ grow_vertical = 2
 script = ExtResource("1_28flt")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,6 +21,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(3.0092635, 0.49251097, 0.3987189, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_48xlc")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
