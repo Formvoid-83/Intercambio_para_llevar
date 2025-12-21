@@ -10,6 +10,7 @@
 z_index = 10
 
 [node name="Workshop" parent="." instance=ExtResource("2_jos35")]
+
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
 [node name="MainMenu" parent="CanvasLayer2" instance=ExtResource("1_byv6p")]

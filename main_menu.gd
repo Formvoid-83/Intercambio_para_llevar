@@ -12,7 +12,8 @@ func _process(delta: float) -> void:
 
 
 func _on_start_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/workshop.tscn")
+	visible = false
+	get_tree().get_root().get_node("Node2D/Workshop").start_game()
 
 
 func _on_quit_button_pressed() -> void:

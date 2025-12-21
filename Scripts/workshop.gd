@@ -43,7 +43,7 @@ func _ready():
 	area_table.table_dropped.connect(_on_table_dropped)
 	inventory.toy_requested.connect(_spawn_toy)
 	letter_db.load_letters()
-	spawn_random_letter()
+	#spawn_random_letter()
 	area_table.shelf_clicked.connect(_on_shelf_clicked)
 	inventory.hide()
 	wrapping_panel.wrap_requested.connect(_on_wrap_requested)
@@ -54,6 +54,12 @@ func _ready():
 
 	timer.timeout.connect(_on_timer_timeout)
 	timer.start()
+	
+func start_game():
+	visible = true
+	hud.visible = true
+	spawn_random_letter()
+
 
 func spawn_random_letter():
 	if letter_db.letters.is_empty():
@@ -173,7 +179,7 @@ func _on_table_dropped(drop_position: Vector2):
 
 func _spawn_real_toy(toy_data: ToyData, pos: Vector2):
 	print("SPAWNING WORLD TOY:", toy_data.name)
-
+	inventory.release_toy()
 	var toy := world_toy_scene.instantiate() as WorldToy
 	toys_container.add_child(toy)
 
@@ -183,6 +189,7 @@ func _spawn_real_toy(toy_data: ToyData, pos: Vector2):
 	
 func _on_world_toy_deployed(toy: WorldToy):
 	print("DEPLOYED:", toy)
+	inventory.release_toy() 
 	var total_cost := toy.toy_cost + toy.wrap_cost
 	var delta := current_commission - total_cost
 
