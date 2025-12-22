@@ -12,16 +12,13 @@ extends Node2D
 @onready var area_table: Area2D = $Area_Table
 @onready var deploy_area: Area2D = $"Area_Deploy&Background"
 @onready var timer: Node2D = $Timer
-#@onready var timer_label: Label = $CanvasLayer2/Panel/Label
-#@onready var results_panel: Panel = $CanvasLayer3/Panel
 @onready var hud := get_parent().get_node("HUD_Layer")
 @onready var main_menu: Control = get_parent().get_node_or_null("CanvasLayer2/MainMenu")
 
 const ATLAS := preload("res://Assets/Images/Gifts.png")
 
-
 var current_commission := 0
-
+var has_active_toy := false
 
 @export var wrap_scene: PackedScene = preload("res://Scenes/wrap.tscn")
 const WRAP_ATLAS := preload("res://Assets/Images/Wrapping_Gifts.png")
@@ -79,14 +76,14 @@ func _on_letter_read(data: LetterOpenData):
 
 
 func _spawn_toy(toy_data: Variant) -> void:
+	if has_active_toy:
+		return
+	has_active_toy = true
 	dragged_toy_data = toy_data
 	drag_ghost = preload("res://Scenes/drag_ghost.tscn").instantiate()
 	get_tree().root.add_child(drag_ghost)
 	drag_ghost.setup(toy_data, ATLAS)
-	#var toy := toy_scene.instantiate() as Toy
-	#toys_container.add_child(toy)
-	#toy.setup(toy_data, ATLAS)
-	#toy.released.connect(_on_toy_released)
+
 
 func _input(event):
 	if drag_ghost == null:
@@ -104,6 +101,7 @@ func _input(event):
 			_spawn_real_toy(dragged_toy_data, drop_pos)
 		else:
 			inventory.release_toy()
+			has_active_toy = false
 
 		drag_ghost.queue_free()
 		drag_ghost = null
@@ -175,7 +173,6 @@ func _on_table_dropped(drop_position: Vector2):
 
 func _spawn_real_toy(toy_data: ToyData, pos: Vector2):
 	print("SPAWNING WORLD TOY:", toy_data.name)
-	inventory.release_toy()
 	var toy := world_toy_scene.instantiate() as WorldToy
 	toys_container.add_child(toy)
 
@@ -185,10 +182,10 @@ func _spawn_real_toy(toy_data: ToyData, pos: Vector2):
 	
 func _on_world_toy_deployed(toy: WorldToy):
 	print("DEPLOYED:", toy)
+	has_active_toy = false
 	inventory.release_toy() 
 	var total_cost := toy.toy_cost + toy.wrap_cost
 	var delta := current_commission - total_cost
-
 	hud.apply_delta(delta)
 	if letter and is_instance_valid(letter):
 		letter.queue_free()

@@ -39,9 +39,6 @@ func toggle():
 	visible = is_open
 
 func request_toy(toy_data):
-	if toy_active:
-		return
-	toy_active = true
 	emit_signal("toy_requested", toy_data)
 
 func release_toy():
