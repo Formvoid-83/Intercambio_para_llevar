@@ -21,6 +21,7 @@ z_index = 10
 [node name="MainMenu" parent="CanvasLayer2" instance=ExtResource("1_byv6p")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="MainMenu" parent="CanvasLayer" instance=ExtResource("1_byv6p")]
 visible = false

@@ -1,5 +1,49 @@
-[gd_scene load_steps=0 format=3 uid="uid://lbs1g0k36hfl"]
+[gd_scene load_steps=4 format=3 uid="uid://lbs1g0k36hfl"]
+
+[ext_resource type="FontFile" uid="uid://c32r2eo3o2baq" path="res://Assets/Fonts/pixeled/Pixeled.ttf" id="1_pvhx5"]
+[ext_resource type="Script" uid="uid://bhy1c6g0a4uon" path="res://Scripts/timer.gd" id="1_ycw00"]
+
+[sub_resource type="AudioStreamWAV" id="AudioStreamWAV_ycw00"]
 
 [node name="Timer" type="Node2D"]
+script = ExtResource("1_ycw00")
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer2"]
+offset_left = 1496.0
+offset_top = 26.0
+offset_right = 1903.0
+offset_bottom = 70.0
+
+[node name="Label2" type="Label" parent="CanvasLayer2/Panel"]
+layout_mode = 0
+offset_left = 21.0
+offset_top = -4.0
+offset_right = 311.0
+offset_bottom = 42.0
+theme_override_fonts/font = ExtResource("1_pvhx5")
+text = "Tu turno termina en:  "
+
+[node name="Label" type="Label" parent="CanvasLayer2/Panel"]
+layout_mode = 0
+offset_left = 320.0
+offset_top = -3.0
+offset_right = 390.0
+offset_bottom = 43.0
+theme_override_fonts/font = ExtResource("1_pvhx5")
+text = "00:00"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CanvasLayer2"]
+stream = SubResource("AudioStreamWAV_ycw00")
+
+[node name="CanvasLayer3" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Panel" type="Panel" parent="CanvasLayer3"]
+offset_left = 476.0
+offset_top = 21.0
+offset_right = 1550.0
+offset_bottom = 1050.0

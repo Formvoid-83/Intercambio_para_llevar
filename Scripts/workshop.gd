@@ -1,5 +1,6 @@
 extends Node2D
 
+
 @export var letter_scene: PackedScene
 @export var toy_scene: PackedScene
 @export var world_toy_scene: PackedScene
@@ -10,16 +11,14 @@ extends Node2D
 @onready var letter_popup: Control = $CanvasLayer/letter_open
 @onready var area_table: Area2D = $Area_Table
 @onready var deploy_area: Area2D = $"Area_Deploy&Background"
-@onready var timer: Timer = $Timer
-@onready var timer_label: Label = $CanvasLayer2/Panel/Label
-@onready var results_panel: Panel = $CanvasLayer3/Panel
+@onready var timer: Node2D = $Timer
+#@onready var timer_label: Label = $CanvasLayer2/Panel/Label
+#@onready var results_panel: Panel = $CanvasLayer3/Panel
 @onready var hud := get_parent().get_node("HUD_Layer")
-
-
+@onready var main_menu: Control = get_parent().get_node_or_null("CanvasLayer2/MainMenu")
 
 const ATLAS := preload("res://Assets/Images/Gifts.png")
-var time_left: int
-var total_time :=  180
+
 
 var current_commission := 0
 
@@ -40,6 +39,7 @@ const LETTER_TARGET_POS := Vector2(90, 600)
 
 func _ready():
 	hud.setup(500) #La meta diaria del shift del día
+	main_menu.start_timer.connect(timer.activate_timer)
 	area_table.table_dropped.connect(_on_table_dropped)
 	inventory.toy_requested.connect(_spawn_toy)
 	letter_db.load_letters()
@@ -48,12 +48,8 @@ func _ready():
 	inventory.hide()
 	wrapping_panel.wrap_requested.connect(_on_wrap_requested)
 	wrapping_panel.hide()
-	time_left = total_time
-	update_label()
-	results_panel.visible = false
 
-	timer.timeout.connect(_on_timer_timeout)
-	timer.start()
+
 	
 func start_game():
 	visible = true
@@ -235,24 +231,3 @@ func _on_shelf_clicked():
 	
 func _on_area_table_wrap_clicked() -> void:
 	wrapping_panel.toggle()
-
-func _on_timer_timeout():
-	time_left -= 1
-	update_label()
-
-	if time_left <= 0:
-		timer.stop()
-		on_time_finished()
-
-func update_label():
-	timer_label.text = format_time(time_left)
-
-
-func format_time(seconds: int) -> String:
-	var minutes = seconds / 60
-	var secs = seconds % 60
-	return "%02d:%02d" % [minutes, secs]
-
-func on_time_finished():
-	results_panel.visible = true
-	get_tree().paused = true  # optional: freeze game
