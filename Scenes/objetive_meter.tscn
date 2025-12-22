@@ -1,0 +1,73 @@
+[gd_scene load_steps=2 format=3 uid="uid://vl1ituyug317"]
+
+[ext_resource type="Script" uid="uid://be7j6xyxax1ve" path="res://objetive_meter.gd" id="1_718xm"]
+
+[node name="ObjetiveMeter" type="ProgressBar"]
+custom_minimum_size = Vector2(30, 300)
+offset_left = 1820.0
+offset_top = 403.0
+offset_right = 1850.0
+offset_bottom = 703.0
+fill_mode = 3
+script = ExtResource("1_718xm")
+
+[node name="Markers" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Marker20" type="ColorRect" parent="Markers"]
+layout_mode = 0
+offset_left = -238.0
+offset_top = -316.0
+offset_right = 84.0
+offset_bottom = -266.0
+
+[node name="Marker40" type="ColorRect" parent="Markers"]
+layout_mode = 0
+
+[node name="Marker60" type="ColorRect" parent="Markers"]
+layout_mode = 0
+
+[node name="Marker80" type="ColorRect" parent="Markers"]
+layout_mode = 0
+
+[node name="Marker100" type="ColorRect" parent="Markers"]
+layout_mode = 0
+
+[node name="Labels" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Label20" type="Label" parent="Labels"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "tu gefa
+"
+
+[node name="Label40" type="Label" parent="Labels"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Label60" type="Label" parent="Labels"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Label80" type="Label" parent="Labels"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Label100" type="Label" parent="Labels"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
