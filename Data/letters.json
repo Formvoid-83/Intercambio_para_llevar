@@ -8,7 +8,8 @@
 	que el vuelva a casa, 
 	puedes traer a papa de vuelta?",
 	  "from": "Tommy",
-	"commission": 50
+	"commission": 50,
+	"gender": true
 	
 	},	
 	{
@@ -19,7 +20,8 @@
 	he sido una buena niña 
 	y quisiera que me lo traigas.",
 	  "from": "Paula",
-	"commission": 50
+	"commission": 50,
+	"gender": false
 	},
 	{
 	  "greetings": "Como estas santa?",
@@ -28,8 +30,9 @@
 	hay muchos ositos polares, 
 	siempre he querido ver uno, 
 	por favo traeme un osito polar",
-	  "from": "Muchas gracias Santa",
-	"commission": 50
+	  "from": "Harold",
+	"commission": 50,
+	"gender": true
 	},
 	{
 	  "greetings": "",
@@ -38,13 +41,15 @@
 	 dicen que deberia portarme bien,
 	 pero yo siempre me porto bien.",
 	  "from": "",
-	"commission": 50
+	"commission": 50,
+	"gender": false
 	},
 	{
 	  "greetings": "",
 	  "content": "Dame dinero",
 	  "from": "",
-	"commission": 50
+	"commission": 50,
+	"gender": true
 	},
 	{
 	  "greetings": "",
@@ -55,7 +60,8 @@
 		y yo no quiero jugar con munecas
 		gracias Santa",
 	  "from": "Claudio",
-	"commission": 50
+	"commission": 50,
+	"gender": true
 	},
   ]
 }

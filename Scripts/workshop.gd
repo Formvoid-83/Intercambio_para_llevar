@@ -23,7 +23,8 @@ const ATLAS := preload("res://Assets/Images/Gifts.png")
 var current_commission := 0
 var has_active_toy := false
 
-var final_score : int
+var final_score : int = 200
+@export var goal_money:int 
 
 @export var wrap_scene: PackedScene = preload("res://Scenes/wrap.tscn")
 const WRAP_ATLAS := preload("res://Assets/Images/Wrapping_Gifts.png")
@@ -31,6 +32,8 @@ const WRAP_ATLAS := preload("res://Assets/Images/Wrapping_Gifts.png")
 var letter_db := LetterDatabase.new()
 var data : LetterOpenData
 var letter : Node
+var current_letter_gender: bool
+
 
 var drag_ghost: Control
 var dragged_toy_data: ToyData
@@ -79,6 +82,7 @@ func spawn_random_letter():
 
 func _on_letter_read(data: LetterOpenData):
 	current_commission = data.comission
+	current_letter_gender = data.gender
 	letter_popup.show_letter(data)
 
 
@@ -193,7 +197,15 @@ func _on_world_toy_deployed(toy: WorldToy):
 	inventory.release_toy() 
 	var total_cost := toy.toy_cost + toy.wrap_cost
 	var delta := current_commission - total_cost
-	hud.apply_delta(delta)
+	
+	var bonus_delta := 0
+	if toy.gender == current_letter_gender:
+		bonus_delta = 20
+	else:
+		bonus_delta = -10
+	print("Tu BONO de moralidad: ", bonus_delta)
+	hud.apply_delta(delta + bonus_delta)
+	hud.show_bonus_feedback(bonus_delta)
 	if letter and is_instance_valid(letter):
 		letter.queue_free()
 		letter = null
@@ -229,7 +241,8 @@ func _on_end_shift() -> void:
 
 	end_screen.aparecer(
 		final_score,
-		hud.progress_bar.max_value
+		#hud.progress_bar.max_value
+		goal_money
 	)
 	inventory.visible =false
 	wrapping_panel.visible =false

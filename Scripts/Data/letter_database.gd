@@ -22,6 +22,7 @@ func load_letters(path := "res://Data/letters.json") -> void:
 				entry["greetings"],
 				entry["content"],
 				entry["from"],
-				entry["commission"]
+				entry["commission"],
+				entry["gender"]
 			)
 		)

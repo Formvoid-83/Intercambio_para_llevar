@@ -7,6 +7,7 @@ signal deployed(toy: WorldToy)
 @onready var assembly_sound: AudioStreamPlayer2D = $Assembly_Sound
 
 var toy_cost := 0
+var gender: bool = true
 var wrap_cost := 0
 
 var dragging := false
@@ -20,6 +21,7 @@ func setup(data: ToyData, atlas: Texture2D):
 	tex.atlas = atlas
 	tex.region = data.region
 	sprite.texture = tex
+	gender = data.gender
 
 	scale = Vector2(1.8, 1.8)
 	z_index = 100
