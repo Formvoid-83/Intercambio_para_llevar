@@ -4,6 +4,7 @@ signal end_shift
 @onready var timer_label: Label = $CanvasLayer2/Panel/Label
 @onready var results_panel: Panel = $CanvasLayer3/Panel
 @onready var audio_alarm: AudioStreamPlayer2D = $CanvasLayer2/AudioStreamPlayer2D
+#@onready var ambiente: AudioStreamPlayer2D = $SonidoAmbiente
 
 var time_left: int
 var total_time :=  60
@@ -26,7 +27,6 @@ func _on_timer_timeout():
 	if time_left <= 0:
 		time_left = 0 
 		timer.stop()
-		audio_alarm.play()
 		on_time_finished()
 		emit_signal("end_shift")
 
@@ -40,5 +40,7 @@ func format_time(seconds: int) -> String:
 	return "%02d:%02d" % [minutes, secs]
 
 func on_time_finished():
+	#ambiente.stop()
+	audio_alarm.play()
 	results_panel.visible = true
 	#get_tree().paused = true  # optional: freeze game
