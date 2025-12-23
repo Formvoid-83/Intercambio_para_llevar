@@ -1,12 +1,12 @@
 extends Node2D
-
+signal end_shift
 @onready var timer: Timer = $Timer
 @onready var timer_label: Label = $CanvasLayer2/Panel/Label
 @onready var results_panel: Panel = $CanvasLayer3/Panel
 @onready var audio_alarm: AudioStreamPlayer2D = $CanvasLayer2/AudioStreamPlayer2D
 
 var time_left: int
-var total_time :=  180
+var total_time :=  15
 func _ready() -> void:
 	visible = false
 	results_panel.hide()
@@ -28,6 +28,7 @@ func _on_timer_timeout():
 		timer.stop()
 		audio_alarm.play()
 		on_time_finished()
+		emit_signal("end_shift")
 
 func update_label():
 	timer_label.text = format_time(time_left)
@@ -40,4 +41,4 @@ func format_time(seconds: int) -> String:
 
 func on_time_finished():
 	results_panel.visible = true
-	get_tree().paused = true  # optional: freeze game
+	#get_tree().paused = true  # optional: freeze game

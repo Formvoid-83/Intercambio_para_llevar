@@ -8,10 +8,10 @@ var total_score := 0
 func setup(max_shift_score: int):
 	progress_bar.max_value = max_shift_score
 	progress_bar.value = 0
-	score_label.text = "0"
+	total_score=0
+	score_label.text = "0 $"
 
 func apply_delta(delta: int):
-	print("Algo")
 	total_score += delta
 	progress_bar.value = total_score
 

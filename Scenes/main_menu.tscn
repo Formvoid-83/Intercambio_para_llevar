@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://bce7kv00lhtmb"]
+[gd_scene load_steps=6 format=3 uid="uid://bce7kv00lhtmb"]
 
 [ext_resource type="Script" uid="uid://b7daf6brdn1t6" path="res://main_menu.gd" id="1_28flt"]
 [ext_resource type="Texture2D" uid="uid://cnndwsux2yqlt" path="res://Assets/Images/awazon.png" id="2_48xlc"]
+[ext_resource type="Theme" uid="uid://bb6vwl0h1flws" path="res://Assets/Themes/FlatUI4/kenneyUI-blue.tres" id="3_n45e2"]
+[ext_resource type="Theme" uid="uid://bnhngmri4tfgr" path="res://Assets/Themes/FlatUI4/kenneyUI-green.tres" id="4_opfnp"]
+[ext_resource type="Theme" uid="uid://mbsg4xqnedxi" path="res://Assets/Themes/FlatUI4/kenneyUI-red.tres" id="5_cp0ys"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -10,6 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 script = ExtResource("1_28flt")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -20,6 +24,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 color = Color(3.0092635, 0.49251097, 0.3987189, 1)
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -43,6 +48,7 @@ layout_mode = 2
 
 [node name="MenuLabel" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("3_n45e2")
 theme_override_colors/font_color = Color(0.9487372, 0.8462668, 0.8960942, 1)
 text = "Menu"
 horizontal_alignment = 1
@@ -50,10 +56,12 @@ vertical_alignment = 1
 
 [node name="StartButton" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("4_opfnp")
 text = "Inicar Juego"
 
 [node name="QuitButton" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("5_cp0ys")
 text = "Salir
 "
 

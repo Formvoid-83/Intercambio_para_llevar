@@ -3,25 +3,22 @@
 [ext_resource type="PackedScene" uid="uid://bce7kv00lhtmb" path="res://Scenes/main_menu.tscn" id="1_byv6p"]
 [ext_resource type="PackedScene" uid="uid://dckfa8iofjspr" path="res://Scenes/workshop.tscn" id="2_jos35"]
 [ext_resource type="PackedScene" uid="uid://cbabsf0iog12r" path="res://Scenes/hud_layer.tscn" id="2_k0joy"]
-[ext_resource type="PackedScene" uid="uid://vl1ituyug317" path="res://Scenes/objetive_meter.tscn" id="3_k0joy"]
+[ext_resource type="PackedScene" uid="uid://cdfg7sbif5e5a" path="res://Scenes/end_screen.tscn" id="5_sqy4e"]
 
 [node name="Node2D" type="Node2D"]
 
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = 5
+
+[node name="MainMenu" parent="CanvasLayer2" instance=ExtResource("1_byv6p")]
+z_index = 20
+mouse_filter = 0
+
 [node name="HUD_Layer" parent="." instance=ExtResource("2_k0joy")]
 z_index = 10
+mouse_filter = 1
 
 [node name="Workshop" parent="." instance=ExtResource("2_jos35")]
 
-[node name="CanvasLayer3" type="CanvasLayer" parent="."]
-
-[node name="ObjetiveMeter" parent="CanvasLayer3" instance=ExtResource("3_k0joy")]
-
-[node name="CanvasLayer2" type="CanvasLayer" parent="."]
-
-[node name="MainMenu" parent="CanvasLayer2" instance=ExtResource("1_byv6p")]
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
-
-[node name="MainMenu" parent="CanvasLayer" instance=ExtResource("1_byv6p")]
-visible = false
+[node name="EndScreen" parent="." instance=ExtResource("5_sqy4e")]
+mouse_filter = 1

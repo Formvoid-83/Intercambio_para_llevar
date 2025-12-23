@@ -12,13 +12,17 @@ extends Node2D
 @onready var area_table: Area2D = $Area_Table
 @onready var deploy_area: Area2D = $"Area_Deploy&Background"
 @onready var timer: Node2D = $Timer
+@onready var timer_ui: CanvasLayer = $Timer/CanvasLayer2
 @onready var hud := get_parent().get_node("HUD_Layer")
 @onready var main_menu: Control = get_parent().get_node_or_null("CanvasLayer2/MainMenu")
+@onready var end_screen: Control = get_parent().get_node_or_null("EndScreen")
 
 const ATLAS := preload("res://Assets/Images/Gifts.png")
 
 var current_commission := 0
 var has_active_toy := false
+
+var final_score : int
 
 @export var wrap_scene: PackedScene = preload("res://Scenes/wrap.tscn")
 const WRAP_ATLAS := preload("res://Assets/Images/Wrapping_Gifts.png")
@@ -39,6 +43,7 @@ func _ready():
 	main_menu.start_timer.connect(timer.activate_timer)
 	area_table.table_dropped.connect(_on_table_dropped)
 	inventory.toy_requested.connect(_spawn_toy)
+	timer.end_shift.connect(_on_end_shift)
 	letter_db.load_letters()
 	#spawn_random_letter()
 	area_table.shelf_clicked.connect(_on_shelf_clicked)
@@ -217,7 +222,19 @@ func _unhandled_input(event):
 			and _is_mouse_over_deploy_area():
 				child.deploy()
 				return
+func _on_end_shift() -> void:
+	final_score = hud.total_score
 
+	end_screen.aparecer(
+		final_score,
+		hud.progress_bar.max_value
+	)
+
+	timer.visible = false
+	timer_ui.visible = false
+	hud.visible = false
+	visible = false
+	
 
 func _on_toy_released():
 	inventory.release_toy()

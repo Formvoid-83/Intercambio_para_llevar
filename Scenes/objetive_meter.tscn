@@ -1,73 +1,59 @@
-[gd_scene load_steps=2 format=3 uid="uid://vl1ituyug317"]
+[gd_scene load_steps=4 format=3 uid="uid://vl1ituyug317"]
 
 [ext_resource type="Script" uid="uid://be7j6xyxax1ve" path="res://objetive_meter.gd" id="1_718xm"]
+[ext_resource type="Theme" uid="uid://mbsg4xqnedxi" path="res://Assets/Themes/FlatUI4/kenneyUI-red.tres" id="1_cws6a"]
+[ext_resource type="FontFile" uid="uid://c32r2eo3o2baq" path="res://Assets/Fonts/pixeled/Pixeled.ttf" id="3_x06cf"]
 
 [node name="ObjetiveMeter" type="ProgressBar"]
-custom_minimum_size = Vector2(30, 300)
-offset_left = 1820.0
-offset_top = 403.0
-offset_right = 1850.0
-offset_bottom = 703.0
+custom_minimum_size = Vector2(150, 800)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -150.0
+offset_right = 15.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_cws6a")
+theme_override_font_sizes/font_size = 40
 fill_mode = 3
 script = ExtResource("1_718xm")
 
-[node name="Markers" type="Control" parent="."]
+[node name="Labels" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
+anchors_preset = 9
 anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="Marker20" type="ColorRect" parent="Markers"]
-layout_mode = 0
-offset_left = -238.0
-offset_top = -316.0
-offset_right = 84.0
-offset_bottom = -266.0
-
-[node name="Marker40" type="ColorRect" parent="Markers"]
-layout_mode = 0
-
-[node name="Marker60" type="ColorRect" parent="Markers"]
-layout_mode = 0
-
-[node name="Marker80" type="ColorRect" parent="Markers"]
-layout_mode = 0
-
-[node name="Marker100" type="ColorRect" parent="Markers"]
-layout_mode = 0
-
-[node name="Labels" type="Label" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-
-[node name="Label20" type="Label" parent="Labels"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "tu gefa
-"
-
-[node name="Label40" type="Label" parent="Labels"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-
-[node name="Label60" type="Label" parent="Labels"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-
-[node name="Label80" type="Label" parent="Labels"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = -104.0
+offset_right = 92.0
+grow_vertical = 2
+theme_override_constants/separation = 100
+alignment = 1
 
 [node name="Label100" type="Label" parent="Labels"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_x06cf")
+text = "Max"
+
+[node name="Label80" type="Label" parent="Labels"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_x06cf")
+text = "Almost max"
+
+[node name="Label60" type="Label" parent="Labels"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_x06cf")
+text = "Middle"
+
+[node name="Label40" type="Label" parent="Labels"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_x06cf")
+text = "Alsmot Min"
+
+[node name="Label20" type="Label" parent="Labels"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_x06cf")
+text = "Min
+"

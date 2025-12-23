@@ -1,17 +1,17 @@
 extends Control
 
 @onready var puntaje_label = $CenterContainer/VBoxContainer/PuntajeLabel
+#@onready var objective_meter: ProgressBar = $ResultScore/CanvasLayer/ObjectiveMeter
+@onready var objective_meter = get_node_or_null("ResultScore/CanvasLayer/ObjetiveMeter")
 
-func aparecer(puntos_finales: int):
-	show() # Muestra la pantalla
-	puntaje_label.text = "Puntaje Final: " + str(puntos_finales)
-	# Aquí podrías pausar el juego si quieres
-	# get_tree().paused = true 
 
-func _on_btn_reiniciar_pressed():
-	# get_tree().paused = false
-	get_tree().reload_current_scene() # Reinicia el taller
+func _ready():
+	hide()
 
-func _on_btn_menu_pressed():
-	# get_tree().paused = false
-	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
+func aparecer(final_score: int, max_score: int):
+	show()
+
+	puntaje_label.text = "Puntaje Final: %d $" % final_score
+
+	var percent := float(final_score) / float(max_score)
+	objective_meter.show_result(percent)

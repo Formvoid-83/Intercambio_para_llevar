@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://di6jx88d8gre1"]
 
-[ext_resource type="Script" uid="uid://dipy2e005jye" path="res://Scripts/world_toy.gd" id="1_gwmj0"]
+[ext_resource type="Script" path="res://Scripts/world_toy.gd" id="1_gwmj0"]
 [ext_resource type="AudioStream" uid="uid://blckbd0v1s0ep" path="res://Assets/Sounds/wrapping-paper.wav" id="2_oo54l"]
 [ext_resource type="AudioStream" uid="uid://bfj08uyhoht1n" path="res://Assets/Sounds/microwave.wav" id="3_mdev3"]
 
