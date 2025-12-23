@@ -16,6 +16,7 @@ extends Node2D
 @onready var hud := get_parent().get_node("HUD_Layer")
 @onready var main_menu: Control = get_parent().get_node_or_null("CanvasLayer2/MainMenu")
 @onready var end_screen: Control = get_parent().get_node_or_null("EndScreen")
+@onready var ambience = $SonidoAmbiente
 
 const ATLAS := preload("res://Assets/Images/Gifts.png")
 
@@ -56,6 +57,7 @@ func _ready():
 func start_game():
 	visible = true
 	hud.visible = true
+	ambience.play()
 	spawn_random_letter()
 
 
@@ -246,3 +248,7 @@ func _on_shelf_clicked():
 	
 func _on_area_table_wrap_clicked() -> void:
 	wrapping_panel.toggle()
+	
+	
+func _exit_tree():
+	ambience.stop()

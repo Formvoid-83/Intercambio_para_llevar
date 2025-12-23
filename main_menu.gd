@@ -14,7 +14,9 @@ func _input(event):
 func _on_start_button_pressed() -> void:
 	get_tree().paused = false
 	print("Iniciar JUEGOSSSS")
+	StartTransiction.transition()
 	visible = false
+	await StartTransiction.on_transition_finished
 	get_tree().get_root().get_node("Node2D/Workshop").start_game()
 	emit_signal("start_timer")
 
