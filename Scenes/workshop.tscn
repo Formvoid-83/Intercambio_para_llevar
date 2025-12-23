@@ -1,18 +1,19 @@
-[gd_scene load_steps=18 format=3 uid="uid://dckfa8iofjspr"]
+[gd_scene load_steps=19 format=3 uid="uid://cchgkhrh1oxvv"]
 
 [ext_resource type="PackedScene" uid="uid://bawd52ey5er7t" path="res://Scenes/card_opener.tscn" id="1_0uag0"]
 [ext_resource type="Script" uid="uid://bn88pxcoowbbd" path="res://Scripts/workshop.gd" id="1_h4m5q"]
 [ext_resource type="PackedScene" uid="uid://bl2pcgsurq58w" path="res://Scenes/letter.tscn" id="2_m0rod"]
 [ext_resource type="PackedScene" uid="uid://3yojtyhke3jh" path="res://Scenes/toy.tscn" id="3_vt66m"]
-[ext_resource type="Script" path="res://Scripts/area_table.gd" id="4_2xyou"]
+[ext_resource type="Script" uid="uid://ddef3i2xfiqkv" path="res://Scripts/area_table.gd" id="4_2xyou"]
 [ext_resource type="PackedScene" uid="uid://co0xn8yr1tkir" path="res://Scenes/letter_open.tscn" id="4_m0rod"]
 [ext_resource type="PackedScene" uid="uid://di6jx88d8gre1" path="res://Scenes/world_toy.tscn" id="4_s7tup"]
 [ext_resource type="Texture2D" uid="uid://dp1nwt0cy5n51" path="res://Assets/Images/workshop_table_shelf.png" id="4_vt66m"]
 [ext_resource type="PackedScene" uid="uid://mpjgbql8egmy" path="res://Scenes/inventory_panel.tscn" id="5_fakrd"]
-[ext_resource type="Script" path="res://Scripts/inventory_handle.gd" id="6_7nc4v"]
+[ext_resource type="Script" uid="uid://cl8venik3dnng" path="res://Scripts/inventory_handle.gd" id="6_7nc4v"]
 [ext_resource type="Texture2D" uid="uid://cg85mt77hy7pj" path="res://Assets/Images/workstation.png" id="7_wd2np"]
 [ext_resource type="PackedScene" uid="uid://c021kselxnjvj" path="res://Scenes/wrapping_panel.tscn" id="10_ap34w"]
 [ext_resource type="PackedScene" uid="uid://lbs1g0k36hfl" path="res://Scenes/timer.tscn" id="14_754ag"]
+[ext_resource type="AudioStream" uid="uid://dyxdqwgx8bvmc" path="res://Assets/Sounds/office_ambience.wav" id="15_vxidb"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qhibq"]
 radius = 212.0
@@ -116,6 +117,9 @@ offset_right = 0.0
 offset_bottom = 172.00134
 
 [node name="Timer" parent="." instance=ExtResource("14_754ag")]
+
+[node name="SonidoAmbiente" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_vxidb")
 
 [connection signal="table_dropped" from="Area_Table" to="." method="_on_table_dropped"]
 [connection signal="wrap_clicked" from="Area_Table" to="." method="_on_area_table_wrap_clicked"]
