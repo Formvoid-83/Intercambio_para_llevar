@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://vl1ituyug317"]
+[gd_scene load_steps=5 format=3 uid="uid://vl1ituyug317"]
 
 [ext_resource type="Script" uid="uid://be7j6xyxax1ve" path="res://objetive_meter.gd" id="1_718xm"]
 [ext_resource type="Theme" uid="uid://mbsg4xqnedxi" path="res://Assets/Themes/FlatUI4/kenneyUI-red.tres" id="1_cws6a"]
 [ext_resource type="FontFile" uid="uid://c32r2eo3o2baq" path="res://Assets/Fonts/pixeled/Pixeled.ttf" id="3_x06cf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cws6a"]
+bg_color = Color(0.8627451, 0, 0, 1)
 
 [node name="ObjetiveMeter" type="ProgressBar"]
 custom_minimum_size = Vector2(150, 800)
@@ -18,7 +21,9 @@ offset_bottom = 150.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_cws6a")
+theme_override_colors/font_color = Color(0.19607843, 0.9490196, 0.23137255, 1)
 theme_override_font_sizes/font_size = 40
+theme_override_styles/fill = SubResource("StyleBoxFlat_cws6a")
 fill_mode = 3
 script = ExtResource("1_718xm")
 
@@ -35,25 +40,28 @@ alignment = 1
 [node name="Label100" type="Label" parent="Labels"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_x06cf")
-text = "Max"
+text = "Regalos
+para 
+familia"
 
 [node name="Label80" type="Label" parent="Labels"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_x06cf")
-text = "Almost max"
+text = "Pavo relleno"
 
 [node name="Label60" type="Label" parent="Labels"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_x06cf")
-text = "Middle"
+text = "Nueva
+tostadora"
 
 [node name="Label40" type="Label" parent="Labels"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_x06cf")
-text = "Alsmot Min"
+text = "Dentista"
 
 [node name="Label20" type="Label" parent="Labels"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_x06cf")
-text = "Min
+text = "Decoraciones
 "

@@ -229,7 +229,8 @@ func _on_end_shift() -> void:
 		final_score,
 		hud.progress_bar.max_value
 	)
-
+	inventory.visible =false
+	wrapping_panel.visible =false
 	timer.visible = false
 	timer_ui.visible = false
 	hud.visible = false

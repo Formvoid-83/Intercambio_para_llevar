@@ -6,7 +6,7 @@ signal end_shift
 @onready var audio_alarm: AudioStreamPlayer2D = $CanvasLayer2/AudioStreamPlayer2D
 
 var time_left: int
-var total_time :=  15
+var total_time :=  60
 func _ready() -> void:
 	visible = false
 	results_panel.hide()
