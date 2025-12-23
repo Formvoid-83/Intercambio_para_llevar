@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://vl1ituyug317"]
+[gd_scene load_steps=6 format=3 uid="uid://vl1ituyug317"]
 
 [ext_resource type="Script" uid="uid://be7j6xyxax1ve" path="res://objetive_meter.gd" id="1_718xm"]
 [ext_resource type="Theme" uid="uid://mbsg4xqnedxi" path="res://Assets/Themes/FlatUI4/kenneyUI-red.tres" id="1_cws6a"]
@@ -6,6 +6,8 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cws6a"]
 bg_color = Color(0.8627451, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_cws6a"]
 
 [node name="ObjetiveMeter" type="ProgressBar"]
 custom_minimum_size = Vector2(150, 800)
@@ -31,37 +33,59 @@ script = ExtResource("1_718xm")
 layout_mode = 1
 anchors_preset = 9
 anchor_bottom = 1.0
-offset_left = -104.0
-offset_right = 92.0
+offset_left = -151.0
+offset_top = 8.0
+offset_right = 50.0
+offset_bottom = 34.07141
 grow_vertical = 2
+theme = SubResource("Theme_cws6a")
 theme_override_constants/separation = 100
 alignment = 1
 
 [node name="Label100" type="Label" parent="Labels"]
 layout_mode = 2
+theme = SubResource("Theme_cws6a")
+theme_type_variation = &"TooltipLabel"
 theme_override_fonts/font = ExtResource("3_x06cf")
 text = "Regalos
 para 
 familia"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Label80" type="Label" parent="Labels"]
 layout_mode = 2
+theme = SubResource("Theme_cws6a")
+theme_type_variation = &"TooltipLabel"
 theme_override_fonts/font = ExtResource("3_x06cf")
 text = "Pavo relleno"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Label60" type="Label" parent="Labels"]
 layout_mode = 2
+theme = SubResource("Theme_cws6a")
+theme_type_variation = &"TooltipLabel"
 theme_override_fonts/font = ExtResource("3_x06cf")
 text = "Nueva
 tostadora"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Label40" type="Label" parent="Labels"]
 layout_mode = 2
+theme = SubResource("Theme_cws6a")
+theme_type_variation = &"TooltipLabel"
 theme_override_fonts/font = ExtResource("3_x06cf")
 text = "Dentista"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Label20" type="Label" parent="Labels"]
 layout_mode = 2
+theme_type_variation = &"TooltipLabel"
 theme_override_fonts/font = ExtResource("3_x06cf")
 text = "Decoraciones
 "
+horizontal_alignment = 1
+vertical_alignment = 1
