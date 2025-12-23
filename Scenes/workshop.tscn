@@ -1,21 +1,18 @@
-
-[gd_scene load_steps=21 format=3 uid="uid://dckfa8iofjspr"]
-
+[gd_scene load_steps=18 format=3 uid="uid://dckfa8iofjspr"]
 
 [ext_resource type="PackedScene" uid="uid://bawd52ey5er7t" path="res://Scenes/card_opener.tscn" id="1_0uag0"]
 [ext_resource type="Script" uid="uid://bn88pxcoowbbd" path="res://Scripts/workshop.gd" id="1_h4m5q"]
 [ext_resource type="PackedScene" uid="uid://bl2pcgsurq58w" path="res://Scenes/letter.tscn" id="2_m0rod"]
 [ext_resource type="PackedScene" uid="uid://3yojtyhke3jh" path="res://Scenes/toy.tscn" id="3_vt66m"]
-[ext_resource type="Script" uid="uid://ddef3i2xfiqkv" path="res://Scripts/area_table.gd" id="4_2xyou"]
+[ext_resource type="Script" path="res://Scripts/area_table.gd" id="4_2xyou"]
 [ext_resource type="PackedScene" uid="uid://co0xn8yr1tkir" path="res://Scenes/letter_open.tscn" id="4_m0rod"]
 [ext_resource type="PackedScene" uid="uid://di6jx88d8gre1" path="res://Scenes/world_toy.tscn" id="4_s7tup"]
 [ext_resource type="Texture2D" uid="uid://dp1nwt0cy5n51" path="res://Assets/Images/workshop_table_shelf.png" id="4_vt66m"]
 [ext_resource type="PackedScene" uid="uid://mpjgbql8egmy" path="res://Scenes/inventory_panel.tscn" id="5_fakrd"]
-[ext_resource type="Script" uid="uid://cl8venik3dnng" path="res://Scripts/inventory_handle.gd" id="6_7nc4v"]
+[ext_resource type="Script" path="res://Scripts/inventory_handle.gd" id="6_7nc4v"]
 [ext_resource type="Texture2D" uid="uid://cg85mt77hy7pj" path="res://Assets/Images/workstation.png" id="7_wd2np"]
 [ext_resource type="PackedScene" uid="uid://c021kselxnjvj" path="res://Scenes/wrapping_panel.tscn" id="10_ap34w"]
 [ext_resource type="PackedScene" uid="uid://lbs1g0k36hfl" path="res://Scenes/timer.tscn" id="14_754ag"]
-[ext_resource type="AudioStream" uid="uid://dyxdqwgx8bvmc" path="res://Assets/Sounds/office_ambience.wav" id="15_vxidb"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qhibq"]
 radius = 212.0
@@ -118,42 +115,7 @@ offset_top = -180.0
 offset_right = 0.0
 offset_bottom = 172.00134
 
-
-[node name="CanvasLayer2" type="CanvasLayer" parent="."]
-layer = 0
-
-[node name="Panel" type="Panel" parent="CanvasLayer2"]
-visible = false
-offset_left = 1496.0
-offset_top = 26.0
-offset_right = 1903.0
-offset_bottom = 70.0
-
-[node name="Label2" type="Label" parent="CanvasLayer2/Panel"]
-layout_mode = 0
-offset_left = 21.0
-offset_top = -4.0
-offset_right = 311.0
-offset_bottom = 42.0
-theme_override_fonts/font = ExtResource("13_opyau")
-text = "Tu turno termina en:  "
-
-[node name="Label" type="Label" parent="CanvasLayer2/Panel"]
-layout_mode = 0
-offset_left = 320.0
-offset_top = -3.0
-offset_right = 390.0
-offset_bottom = 43.0
-theme_override_fonts/font = ExtResource("13_opyau")
-text = "00:00"
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CanvasLayer2"]
-stream = SubResource("AudioStreamWAV_wd2np")
-
 [node name="Timer" parent="." instance=ExtResource("14_754ag")]
-
-[node name="SonidoAmbiente" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("15_vxidb")
 
 [connection signal="table_dropped" from="Area_Table" to="." method="_on_table_dropped"]
 [connection signal="wrap_clicked" from="Area_Table" to="." method="_on_area_table_wrap_clicked"]
