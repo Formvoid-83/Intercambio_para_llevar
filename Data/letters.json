@@ -10,7 +10,70 @@
 	  "from": "Tommy",
 	"commission": 50,
 	"gender": true
-	
+	},	
+	{
+	  "greetings": "Hola Santa!",
+	  "content": "Siempre fui un fan de los camiones monstruo, 
+	me gusta verlos rodar y chocar unos contra otros, son lo mejor!
+	Para esta Navidad, solo deseo un camion de juguete",
+	  "from": "Carlos",
+	"commission": 65,
+	"gender": true
+	},	
+	{
+	  "greetings": "Querido Santa",
+	  "content": "He sido buena niña este año, me porté muy bien. Pero por degracia mi abuelito enfermó.
+	Mamá y Papá tuvieron que comprar muchos medicamentos. Entiendo que no se puede tener todo en esta vida, siempre quise un horito de juguete, pero este año me conformo con un ula ula.
+	Muchas gracias Santa, espero que estés muy bien",
+	  "from": "Daniela",
+	"commission": 15,
+	"gender": false
+	},	
+	{
+	  "greetings": "Querido Papa Noel",
+	  "content": "Me encantan los dinosaurios, me he visto todas las películas y documentales por haber.
+	Ni mis padres ni mi hermano creen que son cool, pero yo creo que son lo máximo: Sus colmillos, sus garras, sus colas, son los mejores animales del planeta!
+	No entiendo por qué Dios los extinguió. Por favor, deseo un dinosaurio para esta Navidad, uno enorme y real.
+	Gracias Santa,
+	Feliz Navidad!",
+	  "from": "Antonio",
+	"commission": 20,
+	"gender": true
+	},	
+	{
+	  "greetings": "Estimado Santa Claus",
+	  "content": "Me presento, mi nombre es Carla. A pesar de ser joven, creo estar muy por encima de mis contemporáneos, por lo que aprovecho el favor de un ser sobrenatural como tú para solicitar algo de gran importancia: Paz Mundial.
+	Creo que es debido solicitar algo tan indispensable en los tiempos que corren y espero que estés de acuerdo. De no ser posible, una nueva muñeca es suficiente como pago por mis ecelentes calificaciones.
+	Gracias",
+	  "from": "Carla",
+	"commission": 30,
+	"gender": false
+	},	
+	{
+	  "greetings": "Hola Viejito Pascuero",
+	  "content": "Me siento triste y avergonzado de pedirte esto, mis padres me regañaron y mis amigos se burlan de mí, pero honestamente me gust jugar con muñecas.
+	Creo haberme portado bien este año por lo que siento que si me entregas una, no solo me harás feliz, pero también sabré que tengo un amigo que me respeta y no me juzga.
+	Gracias Papa Noel",
+	  "from": "Alberto",
+	"commission": 20,
+	"gender": true
+	},	
+	{
+	  "greetings": "SOS",
+	  "content": "El barco se estrelló hace 1 semana por el norte del Atlántico. Tuve que comerme el pellejo de mis compañeros muertos para subsistir.
+	Por amor al cielo, manden a la guardia costera o algo. Adjunto una muestra de agradecimiento para aquellla persona que reciba este mensaje.
+	(Tuve que comerme el resto)",
+	  "from": "Frago",
+	"commission": 25,
+	"gender": true
+	},	
+	{
+	  "greetings": "Saludos Noel",
+	  "content": "El año pasado te tardaste y ni siquiera era lo que quería. Quiero un PS5 nuevo para ayer.
+	No te tardes de nuevo o haré que mi padre te despida",
+	  "from": "Enrique",
+	"commission": 550,
+	"gender": true
 	},	
 	{
 	  "greetings": "",
@@ -20,7 +83,7 @@
 	he sido una buena niña 
 	y quisiera que me lo traigas.",
 	  "from": "Paula",
-	"commission": 50,
+	"commission": 505,
 	"gender": false
 	},
 	{
@@ -48,7 +111,15 @@
 	  "greetings": "",
 	  "content": "Dame dinero",
 	  "from": "",
-	"commission": 50,
+	"commission": 5,
+	"gender": true
+	},
+	{
+	 "greetings": "Para mi pariente",
+	 "content": "Que bueno es saber de tí Edmundo, la verdad esto de la estación de correos cada vez es más confusa.
+	Espero que mi carta no termine en manos de algún coleccionista aficionado en Oriente. Te dejo unos cuantos billetes para chelas y me saludas a tu hermana.",
+	 "from": "Ruben",
+	"commission": 15,
 	"gender": true
 	},
 	{

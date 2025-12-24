@@ -43,11 +43,26 @@ func _ready() -> void:
 		cell.setup_wrap(wrap, ATLAS, ATLAS2, CELL_REGION)
 		cell.pressed.connect(request_wrap)
 		
+	
+func open():
+	if is_open:
+		return
+	audio_drawer.play()
+	is_open = true
+	visible = true
+
+func close():
+	if not is_open:
+		return
+	is_open = false
+	visible = false
 
 func toggle():
 	audio_drawer.play()
-	is_open = !is_open
-	visible = is_open
+	if is_open:
+		close()
+	else:
+		open()
 
 func request_wrap(wrap_data):
 	if wrap_active:

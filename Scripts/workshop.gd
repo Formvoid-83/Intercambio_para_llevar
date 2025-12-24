@@ -1,6 +1,5 @@
 extends Node2D
 
-
 @export var letter_scene: PackedScene
 @export var toy_scene: PackedScene
 @export var world_toy_scene: PackedScene
@@ -23,7 +22,7 @@ const ATLAS := preload("res://Assets/Images/Gifts.png")
 var current_commission := 0
 var has_active_toy := false
 
-var final_score : int = 200
+var final_score : int = 500
 @export var goal_money:int 
 
 @export var wrap_scene: PackedScene = preload("res://Scenes/wrap.tscn")
@@ -241,7 +240,6 @@ func _on_end_shift() -> void:
 
 	end_screen.aparecer(
 		final_score,
-		#hud.progress_bar.max_value
 		goal_money
 	)
 	inventory.visible =false
@@ -256,10 +254,17 @@ func _on_toy_released():
 	inventory.release_toy()
 	
 func _on_shelf_clicked():
+	if wrapping_panel.is_open:
+		return 
+	wrapping_panel.close()
 	inventory.toggle()
+
 	
 	
 func _on_area_table_wrap_clicked() -> void:
+	if inventory.is_open:
+		return
+	inventory.close()
 	wrapping_panel.toggle()
 	
 	

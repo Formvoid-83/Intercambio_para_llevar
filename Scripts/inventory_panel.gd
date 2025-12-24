@@ -32,11 +32,25 @@ func _ready() -> void:
 		cell.setup_toy(toy, ATLAS, CELL_REGION)
 		cell.pressed.connect(request_toy)
 		
+func open():
+	if is_open:
+		return
+	audio_drawer.play()
+	is_open = true
+	visible = true
 
+func close():
+	if not is_open:
+		return
+	is_open = false
+	visible = false
+	
 func toggle():
 	audio_drawer.play()
-	is_open = !is_open
-	visible = is_open
+	if is_open:
+		close()
+	else:
+		open()
 
 func request_toy(toy_data):
 	emit_signal("toy_requested", toy_data)

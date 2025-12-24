@@ -33,7 +33,7 @@ script = ExtResource("1_h4m5q")
 letter_scene = ExtResource("2_m0rod")
 toy_scene = ExtResource("3_vt66m")
 world_toy_scene = ExtResource("4_s7tup")
-goal_money = 500
+goal_money = 750
 
 [node name="Area_Table" type="Area2D" parent="."]
 z_index = 7
